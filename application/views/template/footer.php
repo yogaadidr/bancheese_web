@@ -38,9 +38,7 @@
 
 
     <!-- Scripts -->
-    <script src="<?= base_url() ?>assets/theadmin/assets/js/core.min.js"></script>
-    <script src="<?= base_url() ?>assets/theadmin/assets/js/app.min.js"></script>
-    <script src="<?= base_url() ?>assets/theadmin/assets/js/script.min.js"></script>
+
 
 
     <script>
