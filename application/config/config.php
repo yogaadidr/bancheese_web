@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = 'http://localhost/project_kasir/bancheese_web/';
 
-$config['api_url'] = 'http://192.168.1.8:8080/api/v1/';
+$config['api_url'] = 'http://localhost:8080/api/v1/';
 
 /*
 |--------------------------------------------------------------------------
