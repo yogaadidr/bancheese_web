@@ -42,7 +42,7 @@
 							    <span class="fa fa-ellipsis-v"></span>
 							  </button>
 							  <div class="dropdown-menu">
-							    <a class="dropdown-item" href="#">Ubah <i class="fa fa-edit"></i></a>
+							    <a class="dropdown-item" href="#">Ubahs <i class="fa fa-edit"></i></a>
 							    <a class="dropdown-item" href="#">Hapus <i class="fa fa-trash-o"></i></a>
 							  </div>
 							</div>
