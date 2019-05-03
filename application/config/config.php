@@ -23,9 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost:80/bancheese_web/';
+$config['base_url'] = 'http://localhost:81/bancheese_web/';
 
-$config['api_url'] = 'http://localhost:8080/api/v1/';
+$config['api_url'] = 'http://192.168.1.8:8080/api/v1/';
 
 /*
 |--------------------------------------------------------------------------

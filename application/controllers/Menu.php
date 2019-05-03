@@ -19,4 +19,37 @@ class Menu extends Base_controller {
 		$this->loadView('dashboard/menu/kelola_menu',$data);
 	}
 
+	public function tambah($action = null){
+		if($action != null  && $action == 'simpan'){
+			$this->modifyData($this->input,"tambah");
+		}
+		$data['opt'] = "Tambah";
+		$data['menu']= "menu";
+		$data['list']= null;
+		$data['link']= base_url()."menu/tambah/simpan";
+
+		$this->loadView('dashboard/menu/form_menu',$data);
+	}
+
+	private function modifyData($i, $type){
+		$body = array(
+				"nama_cabang"=>$i->post("NAMA_CABANG"),
+				"alamat"=>$i->post("ALAMAT"),
+				"no_hp"=>$i->post("NO_HP"),
+				"nama_pemilik"=>$i->post("NAMA_PEMILIK"),
+				"jam_buka"=>$i->post("JAM_BUKA"),
+				"jam_tutup"=>$i->post("JAM_TUTUP"),
+				"printer"=>$i->post("PRINTER")
+				);
+		if($type == "tambah"){
+			$this->services_model->addCabang($body);
+			$this->session->set_flashdata("status","<div class='alert alert-success'>Sukses menambah cabang</div>");
+			redirect("cabang".$id);
+		}else{
+			$this->services_model->editCabang($i->post("ID_CABANG"),$body);
+			$this->session->set_flashdata("status","<div class='alert alert-success'>Data cabang telah diubah</div>");
+			redirect("cabang/edit/".$i->post("ID_CABANG"));
+		}
+	}
+
 }
