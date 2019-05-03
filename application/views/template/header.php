@@ -12,14 +12,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="<?= base_url() ?>vendor/theadmin/assets/css/core.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>vendor/theadmin/assets/css/app.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>vendor/theadmin/assets/css/style.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/theadmin/assets/css/core.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/theadmin/assets/css/app.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/theadmin/assets/css/style.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/css/custom.css" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="<?= base_url() ?>vendor/theadmin/assets/img/apple-touch-icon.png">
-    <link rel="icon" href="<?= base_url() ?>vendor/theadmin/assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="<?= base_url() ?>assets/theadmin/assets/img/apple-touch-icon.png">
+    <link rel="icon" href="<?= base_url() ?>assets/theadmin/assets/img/favicon.png">
 
     <!--  Open Graph Tags -->
     <meta property="og:title" content="The Admin Template of 2018!">

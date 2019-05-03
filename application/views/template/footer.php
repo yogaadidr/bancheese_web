@@ -28,7 +28,7 @@
 
 
     <!-- Global quickview -->
-    <div id="qv-global" class="quickview" data-url="<?= base_url() ?>vendor/theadmin/assets/data/quickview-global.html">
+    <div id="qv-global" class="quickview" data-url="<?= base_url() ?>assets/theadmin/assets/data/quickview-global.html">
       <div class="spinner-linear">
         <div class="line"></div>
       </div>
@@ -38,9 +38,9 @@
 
 
     <!-- Scripts -->
-    <script src="<?= base_url() ?>vendor/theadmin/assets/js/core.min.js"></script>
-    <script src="<?= base_url() ?>vendor/theadmin/assets/js/app.min.js"></script>
-    <script src="<?= base_url() ?>vendor/theadmin/assets/js/script.min.js"></script>
+    <script src="<?= base_url() ?>assets/theadmin/assets/js/core.min.js"></script>
+    <script src="<?= base_url() ?>assets/theadmin/assets/js/app.min.js"></script>
+    <script src="<?= base_url() ?>assets/theadmin/assets/js/script.min.js"></script>
 
 
     <script>

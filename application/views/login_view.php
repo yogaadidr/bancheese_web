@@ -12,24 +12,24 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="<?= base_url() ?>vendor/theadmin/assets/css/core.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>vendor/theadmin/assets/css/app.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>vendor/theadmin/assets/css/style.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/theadmin/assets/css/core.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/theadmin/assets/css/app.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/theadmin/assets/css/style.min.css" rel="stylesheet">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-    <link rel="icon" href="<?= base_url() ?>vendor/theadmin/assets/img/favicon.png">
+    <link rel="icon" href="<?= base_url() ?>assets/theadmin/assets/img/favicon.png">
   </head>
 
   <body>
 
 
     <div class="row no-gutters min-h-fullscreen bg-white">
-      <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img" style="background-image: url(<?= base_url() ?>vendor/theadmin/assets/img/gallery/11.jpg)" data-overlay="5">
+      <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img" style="background-image: url(<?= base_url() ?>assets/theadmin/assets/img/gallery/11.jpg)" data-overlay="5">
 
         <div class="row h-100 pl-50">
           <div class="col-md-10 col-lg-8 align-self-end">
-            <img src="<?= base_url() ?>vendor/theadmin/assets/img/logo-light-lg.png" alt="...">
+            <img src="<?= base_url() ?>assets/theadmin/assets/img/logo-light-lg.png" alt="...">
             <br><br><br>
             <h4 class="text-white">The admin is the best admin framework available online.</h4>
             <p class="text-white">Credibly transition sticky users after backward-compatible web services. Compellingly strategize team building interfaces.</p>
@@ -96,9 +96,9 @@
 
 
     <!-- Scripts -->
-    <script src="<?= base_url() ?>vendor/theadmin/assets/js/core.min.js"></script>
-    <script src="<?= base_url() ?>vendor/theadmin/assets/js/app.min.js"></script>
-    <script src="<?= base_url() ?>vendor/theadmin/assets/js/script.min.js"></script>
+    <script src="<?= base_url() ?>assets/theadmin/assets/js/core.min.js"></script>
+    <script src="<?= base_url() ?>assets/theadmin/assets/js/app.min.js"></script>
+    <script src="<?= base_url() ?>assets/theadmin/assets/js/script.min.js"></script>
 
   </body>
 </html>
