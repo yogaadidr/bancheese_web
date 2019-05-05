@@ -15,7 +15,14 @@ class Dashboard extends Base_controller {
 	public function index()
 	{
 		$data['menu']="dashboard";
+		
 		$this->loadView('dashboard/home',$data);
+	}
+
+	public function kasir(){
+		$data['list'] = $this->services_model->getMasterMenu()["DATA"];
+		$this->load->view('dashboard/kasir_trial',$data);
+
 	}
 
 }

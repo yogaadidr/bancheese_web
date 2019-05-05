@@ -27,6 +27,8 @@
     <meta property="og:image" content="http://thetheme.io/theadmin/assets/img/og-img.jpg">
     <meta property="og:url" content="http://thetheme.io/theadmin/">
     <meta name="twitter:card" content="summary_large_image">
+
+    
   </head>
 
   <body>
@@ -39,3 +41,7 @@
         <span class="dot3"></span>
       </div>
     </div>
+
+    <script src="<?= base_url() ?>assets/theadmin/assets/js/core.min.js"></script>
+    <script src="<?= base_url() ?>assets/theadmin/assets/js/app.min.js"></script>
+    <script src="<?= base_url() ?>assets/theadmin/assets/js/script.min.js"></script>

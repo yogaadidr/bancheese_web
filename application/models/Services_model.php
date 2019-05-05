@@ -38,6 +38,17 @@ class Services_model extends CI_Model {
         return $this->getAPI("GET","users");
     }
 
+// MASTER MENU
+    public function addMenu($body){
+        return $this->getAPI("POST","mastermenu",$body);
+    }
+    public function editMenu($id,$body){
+        return $this->getAPI("POST","mastermenu/".$id,$body);
+    }
+    public function getMenu($id){
+        return $this->getAPI("GET","mastermenu/".$id);
+    }
+
     public function getAPI($method,$url,$body = null){
 
         $url = $this->api_url.$url;

@@ -39,7 +39,6 @@ class Cabang extends Base_controller {
 		}else{
 			$this->loadView('template/error_500',$data);	
 		}
-		//$this->loadView('dashboard/cabang/kelola_cabang',$data);
 	}
 
 	public function tambah($action = null){
@@ -69,7 +68,7 @@ class Cabang extends Base_controller {
 		if($type == "tambah"){
 			$this->services_model->addCabang($body);
 			$this->session->set_flashdata("status","<div class='alert alert-success'>Sukses menambah cabang</div>");
-			redirect("cabang".$id);
+			redirect("cabang");
 		}else{
 			$this->services_model->editCabang($i->post("ID_CABANG"),$body);
 			$this->session->set_flashdata("status","<div class='alert alert-success'>Data cabang telah diubah</div>");

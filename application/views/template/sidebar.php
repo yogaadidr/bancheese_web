@@ -34,6 +34,14 @@
 
           ?>
 
+      <li class="menu-category">Trial</li>
+      <li class="menu-item">
+              <a class="menu-link" href="<?= base_url() ?>dashboard/kasir">
+                <span class="icon fa fa-home"></span>
+                <span class="title">Kasir</span>
+              </a>
+            </li>
+
           
 <!-- 
           <li class="menu-item">

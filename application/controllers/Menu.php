@@ -19,10 +19,31 @@ class Menu extends Base_controller {
 		$this->loadView('dashboard/menu/kelola_menu',$data);
 	}
 
+	public function edit($id, $action = null){
+		if($id == null){
+			redirect('menu');
+		}
+		$menu = $this->services_model->getMenu($id);
+
+		if($action != null  && $action == 'simpan'){
+			$this->modifyData($this->input,"ubah");
+		}
+		$data['opt'] = "Ubah";
+		$data['menu']= "menu";
+		$data['link']= base_url()."menu/edit/".$id."/simpan";
+		if($menu['CODE'] == 200){
+			$data['list'] = $menu['DATA'];
+			$this->loadView('dashboard/menu/form_menu',$data);	
+		}else{
+			$this->loadView('template/error_500',$data);	
+		}
+	}
+
 	public function tambah($action = null){
 		if($action != null  && $action == 'simpan'){
 			$this->modifyData($this->input,"tambah");
 		}
+
 		$data['opt'] = "Tambah";
 		$data['menu']= "menu";
 		$data['list']= null;
@@ -33,22 +54,18 @@ class Menu extends Base_controller {
 
 	private function modifyData($i, $type){
 		$body = array(
-				"nama_cabang"=>$i->post("NAMA_CABANG"),
-				"alamat"=>$i->post("ALAMAT"),
-				"no_hp"=>$i->post("NO_HP"),
-				"nama_pemilik"=>$i->post("NAMA_PEMILIK"),
-				"jam_buka"=>$i->post("JAM_BUKA"),
-				"jam_tutup"=>$i->post("JAM_TUTUP"),
-				"printer"=>$i->post("PRINTER")
+				"nama_menu"=>$i->post("NAMA_MENU"),
+				"harga"=>$i->post("HARGA"),
+				"status"=>$i->post("STATUS")
 				);
 		if($type == "tambah"){
-			$this->services_model->addCabang($body);
+			$this->services_model->addMenu($body);
 			$this->session->set_flashdata("status","<div class='alert alert-success'>Sukses menambah cabang</div>");
-			redirect("cabang".$id);
+			redirect("menu");
 		}else{
-			$this->services_model->editCabang($i->post("ID_CABANG"),$body);
+			$this->services_model->editMenu($i->post("ID_MENU"),$body);
 			$this->session->set_flashdata("status","<div class='alert alert-success'>Data cabang telah diubah</div>");
-			redirect("cabang/edit/".$i->post("ID_CABANG"));
+			redirect("menu/edit/".$i->post("ID_MENU"));
 		}
 	}
 
