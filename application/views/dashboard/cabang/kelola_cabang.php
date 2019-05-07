@@ -13,7 +13,7 @@
                   ?>
                   <br/>
               <div>
-                <a href="<?= base_url()."cabang/tambah"?>" class="btn btn-success btn-round float-right">Tambah Cabang <i class="fa fa-plus"></i></a>
+                <a href="<?= base_url()."cabang/tambah"?>" class="btn btn-success float-right">Tambah Cabang <i class="fa fa-plus"></i></a>
                 
               </div>
               <div class="table">
@@ -37,7 +37,7 @@
                     <td><?= $list['ALAMAT']?></td>
                     <td>
                       <div class="dropdown dropleft">
-                <button type="button" class="btn btn-primary dropdown-toggle btn-round no-arrow" data-toggle="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle btn-sm no-arrow" data-toggle="dropdown">
                   <span class="fa fa-ellipsis-v"></span>
                 </button>
                 <div class="dropdown-menu">

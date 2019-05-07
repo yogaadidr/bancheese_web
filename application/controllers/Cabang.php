@@ -50,9 +50,7 @@ class Cabang extends Base_controller {
 		$data['menu']= "cabang";
 		$data['list']= null;
 		$data['link']= base_url()."cabang/tambah/simpan";
-
 		$this->loadView('dashboard/cabang/form_cabang',$data);	
-
 	}
 
 	private function modifyData($i, $type){

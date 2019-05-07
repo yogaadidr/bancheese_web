@@ -20,7 +20,6 @@ $checkbox = ($status != '0')?'checked':'';
     <div class="col-md-12">
       <div class="card card-body">
         <h3><?= $opt ?> Cabang</h3>
-        <?= $link ?>
         <form action="<?= $link ?>" method="POST">
           <div class="row">
 
@@ -35,21 +34,21 @@ $checkbox = ($status != '0')?'checked':'';
               <div class="form-group">
                 <input type="text" class="form-control" name="ID_MENU" value="<?= $id_menu ?>" id="ID_MENU" hidden>
 
-                <label for="email">Nama menu</label>
+                <label for="menu">Nama menu</label>
                 <input type="text" class="form-control" name="NAMA_MENU" value="<?= $nama_menu?>" placeholder="Nama Menu" id="NAMA_MENU">
               </div>
             </div>
 
             <div class="col-md-12">
               <div class="form-group">
-                <label for="pwd">Harga</label>
+                <label for="harga">Harga</label>
                 <input type="text" class="form-control" name="HARGA" value="<?= $harga ?>" placeholder="Harga" id="HARGA">
               </div>
             </div>
 
             <div class="col-md-12">
               <div class="form-group">
-                <label for="pwd">Status</label>
+                <label for="status">Status</label>
                 <div class="checkbox">
                   <input type="checkbox" name="STATUS" id="STATUS" value="<?=$status?>" <?=$checkbox?>> 
                   <label id="LBL_STATUS"><?=($status!='0')?'Active':'Non Active'?></label>

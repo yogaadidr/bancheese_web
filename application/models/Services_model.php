@@ -12,10 +12,7 @@ class Services_model extends CI_Model {
     public function loginUser($data){
         return $this->getAPI("POST","login",$data);
     }
-
-    public function getMasterMenu(){
-        return $this->getAPI("GET","mastermenu");
-    }
+    // MENU CABANG
 
     public function getAllCabang(){
         return $this->getAPI("GET","cabang");
@@ -33,12 +30,12 @@ class Services_model extends CI_Model {
         return $this->getAPI("DELETE","cabang/".$id);
     }
 
-
-    public function getAllUser(){
-        return $this->getAPI("GET","users");
-    }
+    
 
 // MASTER MENU
+    public function getMasterMenu(){
+        return $this->getAPI("GET","mastermenu");
+    }
     public function addMenu($body){
         return $this->getAPI("POST","mastermenu",$body);
     }
@@ -47,6 +44,20 @@ class Services_model extends CI_Model {
     }
     public function getMenu($id){
         return $this->getAPI("GET","mastermenu/".$id);
+    }
+
+    // MASTER USER
+    public function getAllUser(){
+        return $this->getAPI("GET","users");
+    }
+    public function addUser($body){
+        return $this->getAPI("POST","users",$body);   
+    }
+    public function editUser($id,$body){
+        return $this->getAPI("POST","users/".$id,$body);
+    }
+     public function getUser($id){
+        return $this->getAPI("GET","users/".$id);
     }
 
     public function getAPI($method,$url,$body = null){

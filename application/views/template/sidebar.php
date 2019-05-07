@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-    <aside class="sidebar sidebar-icons-right sidebar-icons-boxed sidebar-expand-lg">
+    <aside class="sidebar sidebar-icons-right sidebar-icons-boxed sidebar-expand-lg sidebar-dark sidebar-color-warning">
       <header class="sidebar-header">
         <a class="logo-icon" href="<?= base_url()."dashboard" ?>">BC</a>
         <span class="logo">
