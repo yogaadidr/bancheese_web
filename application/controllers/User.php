@@ -40,7 +40,7 @@ class User extends Base_controller {
 		if($result['CODE'] == 200){
 			$result = array("nama"=>"Yoga Adi Dharma");
 			$this->session->set_userdata("userdataLogin",$result);
-			redirect("dashboard");
+			redirect(base_url());
 		}else{
 			$this->session->set_flashdata('alert', '<div class="alert alert-warning">Username atau password tidak ditemukan</div>');
 			redirect("login");
@@ -101,6 +101,14 @@ class User extends Base_controller {
 			$this->session->set_flashdata("status","<div class='alert alert-success'>Data cabang telah diubah</div>");
 			redirect("user/edit/".$i->post("ID_USER"));
 		}
+	}
+
+	public function hapus(){
+		$id = $this->input->post("id_hapus");
+		$this->services_model->deleteUser($id);
+		$this->session->set_flashdata("status","<div class='alert alert-success'>Data berhasil dihapus</div>");
+		redirect("user");
+
 	}
 
 	

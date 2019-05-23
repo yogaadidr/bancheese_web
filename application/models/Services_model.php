@@ -12,6 +12,7 @@ class Services_model extends CI_Model {
     public function loginUser($data){
         return $this->getAPI("POST","login",$data);
     }
+
     // MENU CABANG
 
     public function getAllCabang(){
@@ -29,10 +30,26 @@ class Services_model extends CI_Model {
     public function deleteCabang($id){
         return $this->getAPI("DELETE","cabang/".$id);
     }
+    // // MENU CABANG
+    public function getMenuCabang($id){
+        return $this->getAPI("GET","vmenu/".$id);
+    }
+    public function addMenuCabang($body){
+        return $this->getAPI("POST","menudetail",$body);   
+    }
+    public function editMenuCabang($id,$body){
+        return $this->getAPI("POST","menudetail/".$id,$body);   
+    }
+    public function getMenuDetail($id){
+        return $this->getAPI("GET","menudetail/".$id);
+    }
+    public function deleteMenuDetail($id){
+        return $this->getAPI("DELETE","menudetail/".$id);   
+    }
 
     
 
-// MASTER MENU
+    // MASTER MENU
     public function getMasterMenu(){
         return $this->getAPI("GET","mastermenu");
     }
@@ -44,6 +61,9 @@ class Services_model extends CI_Model {
     }
     public function getMenu($id){
         return $this->getAPI("GET","mastermenu/".$id);
+    }
+    public function deleteMenu($id){
+        return $this->getAPI("DELETE","mastermenu/".$id);
     }
 
     // MASTER USER
@@ -59,6 +79,36 @@ class Services_model extends CI_Model {
      public function getUser($id){
         return $this->getAPI("GET","users/".$id);
     }
+    public function deleteUser($id){
+        return $this->getAPI("DELETE","users/".$id);
+    }
+
+    // TRANSAKSI
+    public function getTransaksi($cabang='',$bulan='',$tahun='',$periode=''){
+        $get = "?";
+        $get .=($cabang!='')?"&cabang=$cabang":"";
+        $get .=($periode!='')?"&periode=$periode":"";
+        $get .=($bulan!='' && $tahun!='')?"&tgl_transaksi=$tahun-$bulan":"";
+        
+        return $this->getAPI("GET","vtransaksi".$get);
+    }
+
+    public function getTahunTransaksi(){
+        return $this->getAPI("GET","vtransaksi/tahun");
+    }
+
+
+    //SALDO GUDANG
+    public function getSaldoGudang($id_gdg,$bahan = '',$periode = ''){
+        $bahan = urlencode($bahan);
+
+        $get = "?";
+        $get .= ($periode != '')?"&periode=$periode":"";
+        $get .= ($bahan != '')?"&bahan=$bahan":"";
+
+        return $this->getAPI("GET","vsaldo/$id_gdg".$get);
+    }
+
 
     public function getAPI($method,$url,$body = null){
 
@@ -85,4 +135,6 @@ class Services_model extends CI_Model {
             return $transaction;
         }
     }
+
+    
 }

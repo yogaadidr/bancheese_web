@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Responsive admin dashboard and web application ui kit.">
-    <meta name="keywords" content="dashboard, index, main">
+    <meta name="keywords" content="dashboard, index, main, datatables">
 
     <title>Dashboard &mdash; TheAdmin</title>
 
@@ -28,10 +28,21 @@
     <meta property="og:url" content="http://thetheme.io/theadmin/">
     <meta name="twitter:card" content="summary_large_image">
 
+
+    
+
+    <script src="<?= base_url() ?>assets/theadmin/assets/js/core.min.js"></script>
+    <script src="<?= base_url() ?>assets/theadmin/assets/js/script.min.js"></script>
     
   </head>
+  <style type="text/css">
+    .dropdown-menu{
+      left: -150px;
+      text-align: center;
+    }
+  </style>
 
-  <body>
+  <body id="reload">
   
     <!-- Preloader -->
     <div class="preloader">
@@ -41,7 +52,12 @@
         <span class="dot3"></span>
       </div>
     </div>
-
-    <script src="<?= base_url() ?>assets/theadmin/assets/js/core.min.js"></script>
-    <script src="<?= base_url() ?>assets/theadmin/assets/js/app.min.js"></script>
-    <script src="<?= base_url() ?>assets/theadmin/assets/js/script.min.js"></script>
+    <div id="modal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">   
+        <div class="modal-content">
+          <div class="modal-body">
+               
+          </div>
+        </div>
+      </div>
+    </div>

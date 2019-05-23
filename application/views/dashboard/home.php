@@ -1,0 +1,98 @@
+<div class="main-content">
+	<div class="row" style="position: relative;">
+		<div class="col-lg-12">
+			<div class="card card-body">
+				<h3>Grafik Penjualan</h3>
+				<div class="row">
+					<div class="col-md-3">
+						<h6><strong>Periode</strong></h6>
+						<select class="form-control" id="periode" onchange="loadTrend()">
+							<option disabled selected>Pilih Periode</option>
+							<option value="<?=preg_replace('/(loadTrend|[();])/', "",$periode)?>" <?=$periode!=''?'selected':''?> hidden><?=preg_replace('/(loadTrend|[();])/', "",$periode)?></option>
+							<option value="Daily">Daily</option>
+							<option value="Monthly">Monthly</option>
+							<option value="Yearly">Yearly</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+						<h6><strong>Cabang</strong></h6>
+						<select class="form-control" id="cabang" onchange="loadTrend()">
+							<option disabled>Pilih Cabang</option>
+							<option selected value="">Semua</option>
+							<?php
+							foreach ($master_cabang as $cb) {?>
+								<option <?=($cabang==$cb['ID_CABANG']?'selected':'')?> value="<?=$cb['ID_CABANG']?>"><?=$cb['NAMA_CABANG']?></option>
+							<?php }
+							?>
+						</select>
+					</div>
+					<div class="col-md-3" <?=in_array($periode,array("Daily") )?'':'hidden'?>>
+						<h6><strong>Bulan</strong></h6>
+						<select class="form-control" id="bulan" onchange="loadTrend()">
+							<option disabled selected>Pilih Bulan</option>
+							<?php 
+							foreach ($master_bulan as $bl) {?>
+								<option <?=($bulan==$bl['id']?'selected':'')?> value="<?=$bl['id']?>"><?=$bl['bulan']?></option>
+							<?php }
+							?>
+						</select>
+					</div>
+					<div class="col-md-3" <?=in_array($periode,array("Monthly","Daily"))?'':'hidden'?>>
+						<h6><strong>Tahun</strong></h6>
+						<select class="form-control" id=tahun onchange="loadTrend()">
+							<option disabled selected>Pilih Tahun</option>
+							<?php 
+							foreach ($master_tahun as $th) {?>
+								<option <?=($tahun==$th['VAL']?'selected':'')?> value="<?=$th['VAL']?>"><?=$th['VAL']?></option>
+							<?php }
+							?>
+						</select>
+					</div>
+				</div>
+
+				<div>
+					<h4 class="card-title" align="center"><strong>Trend</strong> Penjualan</h4>
+					<ul class="list-inline text-center gap-items-4 mb-30">
+						<li class="list-inline-item">
+							<span class="badge badge-dot mr-1" style="background-color: #9966ff"></span>
+							<span>Bulan <?=$periode_detail_penjualan?></span>
+						</li>
+					</ul>
+					<div class="card-body">
+						<div id="report" data-provide="morris"></div>
+					</div>
+				</div>
+				<div>
+					<h4 class="card-title" align="center"><strong>Hasil</strong> Penjualan</h4>
+					<div class="card-body">
+						<table class="table table-striped table-bordered"cellspacing="0" data-provide="datatables">
+							<thead>
+								<tr>
+									<th>Periode</th>
+									<th>Nama Cabang</th>
+									<th width="5%">Jumlah Item</th>
+									<th>Total Pemasukan</th>
+									<th width="5%">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+								if ($detail_penjualan != null) {
+								 foreach ($detail_penjualan as $dp) {?>
+									<tr>
+										<td><?=$dp['TGL_TRANSAKSI']?></td>
+										<td><?=$dp['NAMA_CABANG']?></td>
+										<td><?=$dp['QTY']?></td>
+										<td>Rp. <?=number_format($dp['NET_HARGA'],2)?></td>
+										<td><a href="" class="btn btn-sm btn-warning"><i class="fa fa-cutlery"></i> Detail Transaksi</a></td>
+									</tr>
+								<?php }}?>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

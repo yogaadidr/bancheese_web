@@ -5,8 +5,8 @@ class Menu extends Base_controller {
 
 	function __construct(){
 		parent::__construct();
-        $this->load->model('services_model');
-        if($this->session->userdata("userdataLogin") == null){
+		$this->load->model('services_model');
+		if($this->session->userdata("userdataLogin") == null){
 			$this->session->set_flashdata('alert', '<div class="alert alert-warning">Silahkan login terlebih dahulu</div>');
 			redirect('login');
 		}
@@ -54,10 +54,10 @@ class Menu extends Base_controller {
 
 	private function modifyData($i, $type){
 		$body = array(
-				"nama_menu"=>$i->post("NAMA_MENU"),
-				"harga"=>$i->post("HARGA"),
-				"status"=>$i->post("STATUS")
-				);
+			"nama_menu"=>$i->post("NAMA_MENU"),
+			"harga"=>$i->post("HARGA"),
+			"status"=>$i->post("STATUS")
+		);
 		if($type == "tambah"){
 			$this->services_model->addMenu($body);
 			$this->session->set_flashdata("status","<div class='alert alert-success'>Sukses menambah cabang</div>");
@@ -67,6 +67,19 @@ class Menu extends Base_controller {
 			$this->session->set_flashdata("status","<div class='alert alert-success'>Data cabang telah diubah</div>");
 			redirect("menu/edit/".$i->post("ID_MENU"));
 		}
+	}
+
+	public function hapus(){
+		$id = $this->input->post("id_hapus");
+		$cek = $this->services_model->deleteMenu($id);
+
+		if ($cek['CODE'] == 200) {
+			$this->session->set_flashdata("status","<div class='alert alert-success'>Data berhasil dihapus</div>");
+		}else{
+			$this->session->set_flashdata("status","<div class='alert alert-danger'>Gagal menghapus,Data telah digunakan untuk transaksi</div>");
+		}
+		redirect("menu");
+
 	}
 
 }

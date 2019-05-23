@@ -12,13 +12,13 @@
         }
         ?>
         <br/>
-        <div>
+        <div style="margin-bottom: 10px;">
           <a href="<?= base_url()."menu/tambah"?>" class="btn btn-success float-right">Tambah Menu <i class="fa fa-plus"></i></a>
 
         </div>  
         <div class="flexbox">
 
-          <table class="table table-stripped">
+          <table class="table table-striped table-bordered"cellspacing="0" data-provide="datatables">
             <thead>
               <tr>
                 <th width="20">No.</th>
@@ -50,12 +50,8 @@
                 </tr>
                 <?php $i++; endforeach;
                 ?>
-
-
               </tbody>
             </table>
-
-
           </div>
         </div>
       </div>
@@ -71,7 +67,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="post" action="<?= base_url() ?>cabang/hapus">
+        <form method="post" action="<?= base_url() ?>menu/hapus">
 
           <div class="modal-body">
             <span>Apakah anda yakin untuk menghapus data ini?</span>
