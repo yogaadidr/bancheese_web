@@ -12,34 +12,34 @@
 
         <div class="topbar-divider d-none d-md-block"></div>
 
-        <div class="lookup d-none d-md-block topbar-search" id="theadmin-search">
+        <!-- <div class="lookup d-none d-md-block topbar-search" id="theadmin-search">
           <input class="form-control w-300px" type="text">
           <div class="lookup-placeholder">
             <i class="ti-search"></i>
             <span data-provide="typing" data-type="<strong>Type</strong> Button|<strong>Type</strong> Slider|<strong>Type</strong> Layout|<strong>Type</strong> Modal|<strong>Try</strong> typing any keyword..." data-loop="false" data-type-speed="90" data-back-speed="50" data-show-cursor="false"></span>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="topbar-right">
-        <a class="topbar-btn" href="#qv-global" data-toggle="quickview"><i class="ti-align-right"></i></a>
-
-        <div class="topbar-divider"></div>
+        <!-- <a class="topbar-btn" href="#qv-global" data-toggle="quickview"><i class="ti-align-right"></i></a> -->
 
         <ul class="topbar-btns">
           <li class="dropdown">
+            <?=$this->session->userdata("userdataLogin")["username"];?>
             <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="<?= base_url() ?>vendor/theadmin/assets/img/avatar/1.jpg" alt="..."></span>
             <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="page/profile.html"><i class="ti-user"></i> Profile</a>
+              <!-- <a class="dropdown-item" href="page/profile.html"><i class="ti-user"></i> Profile</a>
              
-              <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="<?= base_url() ?>index.php/logout"><i class="ti-power-off"></i> Logout</a>
+              <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a> -->
+              <!-- <div class="dropdown-divider"></div> -->
+              <a class="dropdown-item" href="<?= base_url('user/Logout')?>"><i class="ti-power-off"></i> Logout</a>
             </div>
           </li>
+          <div class="topbar-divider"></div>
 
           <!-- Notifications -->
-          <li class="dropdown d-none d-md-block">
+          <!-- <li class="dropdown d-none d-md-block">
             <span class="topbar-btn has-new" data-toggle="dropdown"><i class="ti-bell"></i></span>
             <div class="dropdown-menu dropdown-menu-right">
 
@@ -81,7 +81,6 @@
                 <div class="left">
                   <a href="#">Read all notifications</a>
                 </div>
-
                 <div class="right">
                   <a href="#" data-provide="tooltip" title="Mark all as read"><i class="fa fa-circle-o"></i></a>
                   <a href="#" data-provide="tooltip" title="Update"><i class="fa fa-repeat"></i></a>
@@ -90,7 +89,7 @@
               </div>
 
             </div>
-          </li>
+          </li> -->
           <!-- END Notifications -->
 
           <!-- Messages -->

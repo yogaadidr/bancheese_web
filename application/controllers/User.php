@@ -38,7 +38,7 @@ class User extends Base_controller {
 
 		$result = $this->services_model->loginUser($body);
 		if($result['CODE'] == 200){
-			$result = array("nama"=>"Yoga Adi Dharma");
+			$result = array("username"=>$result['DATA'][0]["username"]);
 			$this->session->set_userdata("userdataLogin",$result);
 			redirect(base_url());
 		}else{
@@ -62,7 +62,7 @@ class User extends Base_controller {
 
 	public function edit($id, $action = null){
 		if($id == null){
-			redirect('cabang');
+			redirect('User');
 		}
 		$user = $this->services_model->getUser($id);
 
@@ -94,11 +94,11 @@ class User extends Base_controller {
 		);
 		if($type == "tambah"){
 			$this->services_model->addUser($body);
-			$this->session->set_flashdata("status","<div class='alert alert-success'>Sukses menambah cabang</div>");
+			$this->session->set_flashdata("status","<div class='alert alert-success'>Sukses menambah user</div>");
 			redirect("user");
 		}else{
 			$this->services_model->editUser($i->post("ID_USER"),$body);
-			$this->session->set_flashdata("status","<div class='alert alert-success'>Data cabang telah diubah</div>");
+			$this->session->set_flashdata("status","<div class='alert alert-success'>Data user telah diubah</div>");
 			redirect("user/edit/".$i->post("ID_USER"));
 		}
 	}

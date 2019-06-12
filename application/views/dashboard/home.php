@@ -53,38 +53,32 @@
 				<div>
 					<h4 class="card-title" align="center"><strong>Trend</strong> Penjualan</h4>
 					<ul class="list-inline text-center gap-items-4 mb-30">
-						<li class="list-inline-item">
-							<span class="badge badge-dot mr-1" style="background-color: #9966ff"></span>
-							<span>Bulan <?=$periode_detail_penjualan?></span>
-						</li>
 					</ul>
 					<div class="card-body">
 						<div id="report" data-provide="morris"></div>
 					</div>
 				</div>
 				<div>
-					<h4 class="card-title" align="center"><strong>Hasil</strong> Penjualan</h4>
+					<h4 class="card-title" align="center"><strong>Tabel</strong> Penjualan</h4>
 					<div class="card-body">
 						<table class="table table-striped table-bordered"cellspacing="0" data-provide="datatables">
 							<thead>
 								<tr>
 									<th>Periode</th>
-									<th>Nama Cabang</th>
-									<th width="5%">Jumlah Item</th>
+									<th width="14%">Jumlah Item</th>
 									<th>Total Pemasukan</th>
 									<th width="5%">Action</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php
-								if ($detail_penjualan != null) {
+								if (isset($detail_penjualan)) {
 								 foreach ($detail_penjualan as $dp) {?>
 									<tr>
 										<td><?=$dp['TGL_TRANSAKSI']?></td>
-										<td><?=$dp['NAMA_CABANG']?></td>
 										<td><?=$dp['QTY']?></td>
 										<td>Rp. <?=number_format($dp['NET_HARGA'],2)?></td>
-										<td><a href="" class="btn btn-sm btn-warning"><i class="fa fa-cutlery"></i> Detail Transaksi</a></td>
+										<td><a href="" class="btn btn-sm btn-warning"><i class="fa fa-file-text"></i> Detail Transaksi</a></td>
 									</tr>
 								<?php }}?>
 							</tbody>

@@ -60,11 +60,11 @@ class Menu extends Base_controller {
 		);
 		if($type == "tambah"){
 			$this->services_model->addMenu($body);
-			$this->session->set_flashdata("status","<div class='alert alert-success'>Sukses menambah cabang</div>");
+			$this->session->set_flashdata("status","<div class='alert alert-success'>Sukses menambah menu</div>");
 			redirect("menu");
 		}else{
 			$this->services_model->editMenu($i->post("ID_MENU"),$body);
-			$this->session->set_flashdata("status","<div class='alert alert-success'>Data cabang telah diubah</div>");
+			$this->session->set_flashdata("status","<div class='alert alert-success'>Data menu telah diubah</div>");
 			redirect("menu/edit/".$i->post("ID_MENU"));
 		}
 	}

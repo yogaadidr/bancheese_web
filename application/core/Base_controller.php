@@ -28,7 +28,7 @@ class Base_controller extends CI_Controller {
 
 	public function initMenu(){
 		$menu1 = array("name"=>"Dashboard","id"=>"dashboard","icon"=>"icon fa fa-home","link"=>"");
-		$menu2 = array("name"=>"Laporan","id"=>"laporan","icon"=>"icon fa fa-file","link"=>"laporan");
+		$menu2 = array("name"=>"Laporan Gudang","id"=>"laporan","icon"=>"icon fa fa-file","link"=>"laporan");
 		$menu3 = array("name"=>"Kelola Menu","id"=>"menu","icon"=>"icon fa fa-cutlery","link"=>"menu");
 		$menu4 = array("name"=>"Kelola Cabang","id"=>"cabang","icon"=>"icon fa fa-sitemap","link"=>"cabang");
 		$menu5 = array("name"=>"Kelola User","id"=>"user","icon"=>"icon fa fa-users","link"=>"user");

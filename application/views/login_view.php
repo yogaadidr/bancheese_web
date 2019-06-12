@@ -31,8 +31,8 @@
           <div class="col-md-10 col-lg-8 align-self-end">
             <img src="<?= base_url() ?>assets/theadmin/assets/img/logo-light-lg.png" alt="...">
             <br><br><br>
-            <h4 class="text-white">The admin is the best admin framework available online.</h4>
-            <p class="text-white">Credibly transition sticky users after backward-compatible web services. Compellingly strategize team building interfaces.</p>
+            <h4 class="text-white"><strong>Bancheese</strong> Point Of Sale</h4>
+            <p class="text-white">Copyrigt©<?=date('Y')?> - Powered By <a href="#"><b>Anasera Studio.</b></a></p>
             <br><br>
           </div>
         </div>
@@ -70,7 +70,7 @@
                 <span class="custom-control-description">Remember me</span>
               </label>
 
-              <a class="text-muted hover-primary fs-13" href="#">Forgot password?</a>
+              <!-- <a class="text-muted hover-primary fs-13" href="#">Forgot password?</a> -->
             </div>
 
             <div class="form-group">
@@ -78,17 +78,7 @@
             </div>
           </form>
 
-          <div class="divider">Or Sign In With</div>
-          <div class="text-center">
-            <a class="btn btn-square btn-facebook" href="#"><i class="fa fa-facebook"></i></a>
-            <a class="btn btn-square btn-google" href="#"><i class="fa fa-google"></i></a>
-            <a class="btn btn-square btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
-          </div>
-
-          <hr class="w-30px">
-
-          <p class="text-center text-muted fs-13 mt-20">Don't have an account? <a class="text-primary fw-500" href="#">Sign up</a></p>
-        </div>
+          <div class="divider">:)</div>
       </div>
     </div>
 

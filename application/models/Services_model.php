@@ -84,11 +84,12 @@ class Services_model extends CI_Model {
     }
 
     // TRANSAKSI
-    public function getTransaksi($cabang='',$bulan='',$tahun='',$periode=''){
+    public function getTransaksi($cabang='',$periode='',$tahun='',$bulan=''){
         $get = "?";
         $get .=($cabang!='')?"&cabang=$cabang":"";
         $get .=($periode!='')?"&periode=$periode":"";
-        $get .=($bulan!='' && $tahun!='')?"&tgl_transaksi=$tahun-$bulan":"";
+        $get .=($tahun!='')?"&tgl_transaksi=$tahun":"";
+        $get .=($bulan!='')?"-$bulan":"";
         
         return $this->getAPI("GET","vtransaksi".$get);
     }
@@ -99,14 +100,13 @@ class Services_model extends CI_Model {
 
 
     //SALDO GUDANG
-    public function getSaldoGudang($id_gdg,$bahan = '',$periode = ''){
+    public function getSaldoGudang($id_cbg,$bahan = '',$periode = ''){
         $bahan = urlencode($bahan);
-
         $get = "?";
         $get .= ($periode != '')?"&periode=$periode":"";
         $get .= ($bahan != '')?"&bahan=$bahan":"";
 
-        return $this->getAPI("GET","vsaldo/$id_gdg".$get);
+        return $this->getAPI("GET","vsaldo/$id_cbg".$get);
     }
 
 

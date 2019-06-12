@@ -6,23 +6,22 @@ class Dashboard extends Base_controller {
 
 	function __construct(){
 		parent::__construct();
-        $this->load->model('services_model');
-        if($this->session->userdata("userdataLogin") == null){
+		$this->load->model('services_model');
+		if($this->session->userdata("userdataLogin") == null){
 			$this->session->set_flashdata('alert', '<div class="alert alert-warning">Silahkan login terlebih dahulu</div>');
 			redirect('login');
 		}
 
 		$this->bulan = array(
-			["bulan" => '' ,"id" => '0' ],
-			["bulan" => 'Januari' ,"id" => '1' ],
-			["bulan" => 'Februari' ,"id" => '2' ],
-			["bulan" => 'Maret' ,"id" => '3' ],
-			["bulan" => 'April' ,"id" => '4' ],
-			["bulan" => 'Mei' ,"id" => '5' ],
-			["bulan" => 'Juni' ,"id" => '6' ],
-			["bulan" => 'Juli' ,"id" => '7' ],
-			["bulan" => 'Agustus' ,"id" => '8' ],
-			["bulan" => 'September' ,"id" => '9' ],
+			["bulan" => 'Januari' ,"id" => '01' ],
+			["bulan" => 'Februari' ,"id" => '02' ],
+			["bulan" => 'Maret' ,"id" => '03' ],
+			["bulan" => 'April' ,"id" => '04' ],
+			["bulan" => 'Mei' ,"id" => '05' ],
+			["bulan" => 'Juni' ,"id" => '06' ],
+			["bulan" => 'Juli' ,"id" => '07' ],
+			["bulan" => 'Agustus' ,"id" => '08' ],
+			["bulan" => 'September' ,"id" => '09' ],
 			["bulan" => 'Oktober' ,"id" => '10' ],
 			["bulan" => 'November' ,"id" => '11' ],
 			["bulan" => 'Desember' ,"id" => '12' ]
@@ -50,23 +49,18 @@ class Dashboard extends Base_controller {
 
 		$data['load_trend']="loadTrend".$get_periode."();";
 		$data['cabang']=$get_cabang;
-		$data['bulan']=($get_bulan!='')?$get_bulan:date('n');
+		$data['bulan']=($get_bulan!='')?$get_bulan:date('m');
 		$data['tahun']=($get_tahun!='')?$get_tahun:date('Y');
 		$data['periode']=$get_periode;
-		$data['periode_detail_penjualan'] = $this->bulan['bulan'];
 
-		var_dump($this->bulan);
-		echo $this->bulan[$get_bulan]['bulan'];
-
-		$data['detail_penjualan']='hmm';
-		if ($data['periode'] == 'Daily') {
-			$data['detail_penjualan'] = $this->services_model->getTransaksi($data['cabang'],$data['bulan'],$data['tahun'],$data['periode'])['DATA'];
-		}else if ($data['periode'] == 'Monthly') {
-			$data['detail_penjualan'] = 'Monthly';
-		}else if ($data['periode'] == 'Monthly') {
-			$data['detail_penjualan'] = 'Yearly';
+		if ($data['periode'] == 'Monthly') {
+			$data['detail_penjualan'] = $this->services_model->getTransaksi($data['cabang'],$data['periode'],$data['tahun'])['DATA'];
+		}else if ($data['periode'] == 'Yearly') {
+			$data['detail_penjualan'] = $this->services_model->getTransaksi($data['cabang'],$data['periode'])['DATA'];
+		}else{
+			$data['detail_penjualan'] = $this->services_model->getTransaksi($data['cabang'],$data['periode'],$data['tahun'],$data['bulan'])['DATA'];
 		}
-		// $this->loadView('dashboard/home',$data);
+		$this->loadView('dashboard/home',$data);
 	}
 
 	public function kasir(){
