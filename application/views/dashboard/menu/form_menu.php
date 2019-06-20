@@ -19,7 +19,7 @@ $checkbox = ($status != '0')?'checked':'';
 
     <div class="col-md-12">
       <div class="card card-body">
-        <h3><?= $opt ?> Cabang</h3>
+        <h3><?= $opt ?> Menu</h3>
         <form action="<?= $link ?>" method="POST">
           <div class="row">
 

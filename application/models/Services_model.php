@@ -83,7 +83,7 @@ class Services_model extends CI_Model {
         return $this->getAPI("DELETE","users/".$id);
     }
 
-    // TRANSAKSI
+    // TRANSAKSI //DASHBOARD
     public function getTransaksi($cabang='',$periode='',$tahun='',$bulan=''){
         $get = "?";
         $get .=($cabang!='')?"&cabang=$cabang":"";
@@ -96,6 +96,11 @@ class Services_model extends CI_Model {
 
     public function getTahunTransaksi(){
         return $this->getAPI("GET","vtransaksi/tahun");
+    }
+
+    public function getDetailDashboard($tgl,$periode,$cabang){
+        $get = "?cabang=$cabang&periode=$periode&tgl=$tgl";
+        return $this->getAPI("GET","vtransaksidetail".$get);
     }
 
 

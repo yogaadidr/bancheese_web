@@ -16,8 +16,7 @@
           <a href="<?= base_url()."menu/tambah"?>" class="btn btn-success float-right">Tambah Menu <i class="fa fa-plus"></i></a>
 
         </div>  
-        <div class="flexbox">
-
+        <div>
           <table class="table table-striped table-bordered"cellspacing="0" data-provide="datatables">
             <thead>
               <tr>
@@ -30,6 +29,7 @@
             <tbody>
 
               <?php 
+              if (isset($list)) {
               $i = 1;
               foreach ($list as $list): ?>
                 <tr>
@@ -48,7 +48,8 @@
                     </div>
                   </td>
                 </tr>
-                <?php $i++; endforeach;
+                <?php $i++; endforeach; 
+              }
                 ?>
               </tbody>
             </table>

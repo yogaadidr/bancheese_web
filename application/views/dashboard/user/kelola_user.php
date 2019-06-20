@@ -28,6 +28,7 @@
               <tbody>
 
                 <?php 
+                if (isset($list)) {
                 $i = 1;
                 foreach ($list as $list): ?>
                   <tr>
@@ -48,7 +49,7 @@
                       </div>
                     </td>
                   </tr>
-                  <?php $i++; endforeach;
+                  <?php $i++; endforeach;}
                   ?>
                 </tbody>
               </table>

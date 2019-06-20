@@ -19,8 +19,6 @@
   </div>
 </div>
 
-
-
 <script src="<?= base_url() ?>assets/theadmin/assets/js/app.min.js"></script>
 
 <script type="text/javascript">
@@ -52,7 +50,11 @@
 
 <?php 
 if ($menu == 'dashboard') {
-  include (APPPATH . 'views/template/footer/f_dashboard.php');
+  if (isset($sub_menu) && $sub_menu == 'dashboard_detail') {
+    include (APPPATH . 'views/template/footer/f_detail_dashboard.php');
+  }else{
+    include (APPPATH . 'views/template/footer/f_dashboard.php');
+  }
 }
 if ($menu == 'laporan'){
   include (APPPATH . 'views/template/footer/f_laporan.php');

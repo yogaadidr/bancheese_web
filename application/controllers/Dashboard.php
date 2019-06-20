@@ -60,13 +60,15 @@ class Dashboard extends Base_controller {
 		}else{
 			$data['detail_penjualan'] = $this->services_model->getTransaksi($data['cabang'],$data['periode'],$data['tahun'],$data['bulan'])['DATA'];
 		}
-		$this->loadView('dashboard/home',$data);
+		$this->loadView('dashboard/home/home.php',$data);
 	}
 
-	public function kasir(){
-		$data['list'] = $this->services_model->getMasterMenu()["DATA"];
-		$this->load->view('dashboard/kasir_trial',$data);
-
+	public function detailDashboard($tgl,$periode,$cabang='all'){
+		$data['menu']="dashboard";
+		$data['sub_menu']="dashboard_detail";
+		$data['t_detail']=$this->services_model->getDetailDashboard($tgl,$periode,$cabang)['DATA'];
+		// var_dump($data['t_detail']);
+		$this->loadView('dashboard/home/detail_dashboard.php',$data);
 	}
 
 }
