@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Menu extends Base_controller {
+class Menu extends BaseController {
 
 	function __construct(){
 		parent::__construct();

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends Base_controller {
+class Dashboard extends BaseController {
 	private $bulan;
 
 	function __construct(){

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Cabang extends Base_controller {
+class Cabang extends BaseController {
 
 	public $jam;
 	function __construct(){
