@@ -31,7 +31,7 @@
                 <td>Satuan</td>
                 <td>Total Debet</td>
                 <td>Totoal Kredit</td>
-                <td>Saldo Akhir</td>
+                <td>Total Saldo Akhir</td>
                 <td>Harga</td>
                 <td width="5%">Action</td>
               </tr> 

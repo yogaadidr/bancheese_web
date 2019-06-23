@@ -20,7 +20,7 @@
                 <td>Kredit</td>
                 <td>Nilai Kredit Hide</td>
                 <td>Nilai</td>
-                <td>Saldo</td>
+                <td>Saldo Akhir</td>
                 <td>Nilai Hide</td>
                 <td>Nilai</td>
                 <td width="5%">Action</td>

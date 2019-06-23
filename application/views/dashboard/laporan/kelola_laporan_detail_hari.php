@@ -3,8 +3,8 @@
 	<thead>
 		<tr>
 			<td>Periode</td>
-			<td>Pemasukan</td>
-			<td>Pengeluaran</td>
+			<td>Debet</td>
+			<td>Kredit</td>
 		</tr> 
 	</thead>
 	<tbody>
