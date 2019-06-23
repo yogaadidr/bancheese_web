@@ -8,12 +8,21 @@
           <table class="table table-striped table-bordered"cellspacing="0" data-provide="datatables" id="tbl_stok_bulan">
             <thead>
               <tr>
+                <td>Sort</td>
                 <td>Periode</td>
-                <td>Saldo Awal <small>(akumulasi)</small></td>
-                <td>Pemasukan</td>
-                <td>Pengeluaran</td>
-                <td>Saldo</td>
                 <td>Harga</td>
+                <td>Saldo Awal <small>(akumulasi)</small></td>
+                <td>Nilai Saldo Awal Hide</td>
+                <td>Nilai</td>
+                <td>Debet</td>
+                <td>Nilai Debet Hide</td>
+                <td>Nilai</td>
+                <td>Kredit</td>
+                <td>Nilai Kredit Hide</td>
+                <td>Nilai</td>
+                <td>Saldo</td>
+                <td>Nilai Hide</td>
+                <td>Nilai</td>
                 <td width="5%">Action</td>
               </tr> 
             </thead>
@@ -22,17 +31,43 @@
               if (isset($saldo_bulan)) {
               foreach ($saldo_bulan as $saldo) {?>
                 <tr>
+                  <td><?=$saldo['TGL_TRANSAKSI']?></td>
                   <td><?=$saldo['PERIODE']?></td>
-                  <td><?=($saldo['SALDO_AWAL']!='')?$saldo['SALDO_AWAL']:'Awal'?></td>
-                  <td><?=$saldo['DEBET']?></td>
-                  <td><?=$saldo['KREDIT']?></td>
-                  <td><?=$saldo['SALDO']?></td>
                   <td><?=number_format($saldo['HARGA'],2)?></td>
+                  <td><?=($saldo['SALDO_AWAL']!='')?$saldo['SALDO_AWAL']:'Awal'?></td>
+                  <td><?=number_format($saldo['SALDO_AWAL']*$saldo['HARGA'])?></td>
+                  <td><?=number_format($saldo['SALDO_AWAL']*$saldo['HARGA'])?></td>
+                  <td><?=$saldo['DEBET']?></td>
+                  <td><?=number_format($saldo['DEBET']*$saldo['HARGA'])?></td>
+                  <td><?=number_format($saldo['DEBET']*$saldo['HARGA'])?></td>
+                  <td><?=$saldo['KREDIT']?></td>
+                  <td><?=number_format($saldo['KREDIT']*$saldo['HARGA'])?></td>
+                  <td><?=number_format($saldo['KREDIT']*$saldo['HARGA'])?></td>
+                  <td><?=$saldo['SALDO']?></td>
+                  <td><?=number_format($saldo['SALDO']*$saldo['HARGA'])?></td>
+                  <td><?=number_format($saldo['SALDO']*$saldo['HARGA'])?></td>
                   <td><a href="#" data-toggle="modal" data-target="#modal" class="btn btn-warning btn-sm" onclick='loadModal("<?=$saldo['TGL_TRANSAKSI']?>")'><span class="fa fa fa-eye"></span> Detail Stok</a>
                   </td>
                 </tr>
               <?php }}?>
             </tbody>
+            <tfoot>
+              <td></td>
+              <td colspan="2" align="right"><b>Total</b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tfoot>
           </table>
         </div>
       </div>

@@ -64,12 +64,13 @@ $get_per = ($this->input->get('periode')=='')?'Daily':$this->input->get('periode
 				<div>
 					<h4 class="card-title" align="center"><strong>Tabel</strong> Penjualan</h4>
 					<div class="card-body">
-						<table class="table table-striped table-bordered"cellspacing="0" data-provide="datatables">
+						<table class="table table-striped table-bordered"cellspacing="0" data-provide="datatables" id="tbl_dashboard">
 							<thead>
 								<tr>
-									<th style="display: none;">Sort</th>
+									<th>Sort</th>
 									<th>Periode</th>
 									<th width="14%">Jumlah Item</th>
+									<th>Total Pemasukan Hide</th>
 									<th>Total Pemasukan</th>
 									<th width="5%">Action</th>
 								</tr>
@@ -79,14 +80,23 @@ $get_per = ($this->input->get('periode')=='')?'Daily':$this->input->get('periode
 								if (isset($detail_penjualan)) {
 								 foreach ($detail_penjualan as $dp) {?>
 									<tr>
-										<td style="display: none"><?=$dp['PERIODE']?></td>
+										<td><?=$dp['PERIODE']?></td>
 										<td><?=$dp['TGL_TRANSAKSI']?></td>
 										<td><?=$dp['QTY']?></td>
-										<td>Rp. <?=number_format($dp['NET_HARGA'],2)?></td>
+										<td><?=number_format($dp['NET_HARGA'],2)?></td>
+										<td><?=$dp['NET_HARGA']?></td>
 										<td><a href="<?=base_url('Dashboard/detailDashboard/').$dp['PERIODE'].'/'.$get_per.'/'.$this->input->get('cabang')?>" class="btn btn-sm btn-warning"><i class="fa fa-file-text"></i> Detail Penjualan</a></td>
 									</tr>
 								<?php }}?>
 							</tbody>
+							<tfoot>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tfoot>
 						</table>
 					</div>
 				</div>

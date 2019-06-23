@@ -6,7 +6,7 @@
     <meta name="description" content="Responsive admin dashboard and web application ui kit.">
     <meta name="keywords" content="dashboard, index, main, datatables">
 
-    <title>Dashboard &mdash; TheAdmin</title>
+    <title>Bancheese</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
@@ -16,6 +16,7 @@
     <link href="<?= base_url() ?>assets/theadmin/assets/css/app.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/theadmin/assets/css/style.min.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/css/custom.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/theadmin/assets/vendor/datatables/Buttons/css/buttons.dataTables.css" rel="stylesheet">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="<?= base_url() ?>assets/theadmin/assets/img/apple-touch-icon.png">
@@ -42,7 +43,7 @@
     }
   </style>
 
-  <body id="reload">
+  <body id="reload" class="pace-done sidebar-folded">
   
     <!-- Preloader -->
     <div class="preloader">

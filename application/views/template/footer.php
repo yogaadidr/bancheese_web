@@ -48,7 +48,10 @@
   }
 </script>
 
+
+
 <?php 
+include (APPPATH . 'views/template/footer/f_datatable.php');
 if ($menu == 'dashboard') {
   if (isset($sub_menu) && $sub_menu == 'dashboard_detail') {
     include (APPPATH . 'views/template/footer/f_detail_dashboard.php');

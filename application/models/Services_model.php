@@ -13,8 +13,41 @@ class Services_model extends CI_Model {
         return $this->getAPI("POST","login",$data);
     }
 
-    // MENU CABANG
+    // BAHAN BAKU
+    public function getAllBahan(){
+        return $this->getAPI("GET","bahanbaku");
+    }
+    public function getBahan($id){
+        return $this->getAPI("GET","bahanbaku/".$id);
+    }
+    public function addBahan($body){
+        return $this->getAPI("POST","bahanbaku",$body);
+    }
+    public function editBahan($id,$body){
+        return $this->getAPI("POST","bahanbaku/".$id,$body);
+    }
+    public function deleteBahan($id){
+        return $this->getAPI("DELETE","bahanbaku/".$id);
+    }
 
+    // KATEGORI BAHAN
+    public function getAllKategori(){
+        return $this->getAPI("GET","kategori");
+    }
+    public function getKategori($id){
+        return $this->getAPI("GET","kategori/".$id);
+    }
+    public function addKategori($body){
+        return $this->getAPI("POST","kategori",$body);
+    }
+    public function editKategori($id,$body){
+        return $this->getAPI("POST","kategori/".$id,$body);
+    }
+    public function deleteKategori($id){
+        return $this->getAPI("DELETE","kategori/".$id);
+    }
+
+    //CABANG
     public function getAllCabang(){
         return $this->getAPI("GET","cabang");
     }
@@ -30,6 +63,7 @@ class Services_model extends CI_Model {
     public function deleteCabang($id){
         return $this->getAPI("DELETE","cabang/".$id);
     }
+
     // // MENU CABANG
     public function getMenuCabang($id){
         return $this->getAPI("GET","vmenu/".$id);

@@ -28,6 +28,7 @@
             <thead>
               <tr>
                 <td>Nama Bahan</td>
+                <td>Satuan</td>
                 <td>Total Debet</td>
                 <td>Totoal Kredit</td>
                 <td>Saldo Akhir</td>
@@ -41,6 +42,7 @@
                foreach ($saldo_total as $saldo) {?>
                 <tr>
                   <td><?=$saldo['NAMA_BAHAN']?></td>
+                  <td><?=$saldo['SATUAN']?></td>
                   <td><?=$saldo['DEBET']?></td>
                   <td><?=$saldo['KREDIT']?></td>
                   <td><?=$saldo['SALDO']?></td>
