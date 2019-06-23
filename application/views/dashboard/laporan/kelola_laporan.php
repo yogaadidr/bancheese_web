@@ -30,7 +30,7 @@
                 <td>Nama Bahan</td>
                 <td>Satuan</td>
                 <td>Total Debet</td>
-                <td>Totoal Kredit</td>
+                <td>Total Kredit</td>
                 <td>Saldo</td>
                 <td>Harga</td>
                 <td width="5%">Action</td>

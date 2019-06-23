@@ -11,7 +11,7 @@
                 <td>Sort</td>
                 <td>Periode</td>
                 <td>Harga</td>
-                <td>Saldo<small>(akumulasi)</small></td>
+                <td>Saldo Awal</td>
                 <td>Nilai Saldo Awal Hide</td>
                 <td>Nilai</td>
                 <td>Debet</td>
@@ -20,7 +20,7 @@
                 <td>Kredit</td>
                 <td>Nilai Kredit Hide</td>
                 <td>Nilai</td>
-                <td>Sisa</td>
+                <td>Saldo Akhir</td>
                 <td>Nilai Hide</td>
                 <td>Nilai</td>
                 <td width="5%">Action</td>
