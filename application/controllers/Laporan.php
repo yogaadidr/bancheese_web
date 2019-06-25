@@ -31,17 +31,18 @@ class Laporan extends BaseController {
 	function laporanDetailBulan($get_cabang){
 		$data['menu']= "laporan";
 		$data['bahan'] = $this->input->get("bahan");
+		$data['harga'] = $this->input->get("harga");
 		$data['master_cabang'] = $this->services_model->getAllCabang()["DATA"];
 		$data['cabang']=$get_cabang;
 		$data['link_modal'] = base_url()."Laporan/laporanDetailHari/$get_cabang/".$data['bahan'].'/';
 
-		$data['saldo_bulan'] = $this->services_model->getSaldoGudang($get_cabang,$data['bahan'])["DATA"];
+		$data['saldo_bulan'] = $this->services_model->getSaldoGudang($get_cabang,$data['bahan'],$data['harga'])["DATA"];
 		$this->loadView('dashboard/laporan/kelola_laporan_detail_bulan',$data);
 	}
 
-	function laporanDetailHari($get_cabang,$bahan,$tgl_transaksi){
+	function laporanDetailHari($get_cabang,$bahan,$harga,$tgl_transaksi){
 		$data['bahan']= urldecode($bahan);
-		$data['saldo_hari'] = $this->services_model->getSaldoGudang($get_cabang,urldecode($bahan),$tgl_transaksi)['DATA'];
+		$data['saldo_hari'] = $this->services_model->getSaldoGudang($get_cabang,urldecode($bahan),$harga,$tgl_transaksi)['DATA'];
 		$this->load->view('dashboard/laporan/kelola_laporan_detail_hari',$data);
 	}
 }

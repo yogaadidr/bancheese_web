@@ -139,11 +139,12 @@ class Services_model extends CI_Model {
 
 
     //SALDO GUDANG
-    public function getSaldoGudang($id_cbg,$bahan = '',$periode = ''){
+    public function getSaldoGudang($id_cbg,$bahan = '',$harga ='',$periode = ''){
         $bahan = urlencode($bahan);
         $get = "?";
         $get .= ($periode != '')?"&periode=$periode":"";
         $get .= ($bahan != '')?"&bahan=$bahan":"";
+        $get .= ($harga != '')?"&harga=$harga":"";
 
         return $this->getAPI("GET","vsaldo/$id_cbg".$get);
     }

@@ -47,7 +47,7 @@
                   <td><?=$saldo['KREDIT']?></td>
                   <td><?=$saldo['SALDO']?></td>
                   <td><?=number_format($saldo['HARGA'],2)?></td>
-                  <td><a href="<?=base_url('Laporan/laporanDetailBulan/').$cabang.'?bahan='.$saldo['NAMA_BAHAN']?>" class="btn btn-warning btn-sm"><span class="fa fa fa-arrow-right"></span> Lihat Detail</a></td>
+                  <td><a href="<?=base_url('Laporan/laporanDetailBulan/').$cabang.'?bahan='.$saldo['NAMA_BAHAN'].'&harga='.$saldo['HARGA']?>" class="btn btn-warning btn-sm"><span class="fa fa fa-arrow-right"></span> Lihat Detail</a></td>
                 </tr>
                 <?php 
               }}?>

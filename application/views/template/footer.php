@@ -36,10 +36,10 @@
     window.location.href = '<?=base_url()?>'+link;
   }
 
-  function loadModal(val = ''){
+  function loadModal(harga='',periode = ''){
     $.ajax({
       type    : 'POST', 
-      url     : "<?= isset($link_modal)?$link_modal:''?>" + val ,
+      url     : "<?= isset($link_modal)?$link_modal:''?>" + harga + '/' + periode ,
       cache   : false,
       success : function(data){ 
         $('.modal-body').html(data);

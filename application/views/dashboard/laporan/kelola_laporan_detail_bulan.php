@@ -46,7 +46,7 @@
                   <td><?=$saldo['SALDO']?></td>
                   <td><?=number_format($saldo['SALDO']*$saldo['HARGA'])?></td>
                   <td><?=number_format($saldo['SALDO']*$saldo['HARGA'])?></td>
-                  <td><a href="#" data-toggle="modal" data-target="#modal" class="btn btn-warning btn-sm" onclick='loadModal("<?=$saldo['TGL_TRANSAKSI']?>")'><span class="fa fa fa-eye"></span> Detail Stok</a>
+                  <td><a href="#" data-toggle="modal" data-target="#modal" class="btn btn-warning btn-sm" onclick='loadModal("<?=$saldo['HARGA']?>","<?=$saldo['TGL_TRANSAKSI']?>")'><span class="fa fa fa-eye"></span> Detail Stok</a>
                   </td>
                 </tr>
               <?php }}?>
