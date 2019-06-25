@@ -18,18 +18,17 @@
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-    <link rel="icon" href="<?= base_url() ?>assets/theadmin/assets/img/favicon.png">
+    <link rel="icon" href="<?= base_url() ?>assets/theadmin/assets/img/icon.png">
   </head>
 
   <body>
 
 
     <div class="row no-gutters min-h-fullscreen bg-white">
-      <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img" style="background-image: url(<?= base_url() ?>assets/theadmin/assets/img/gallery/11.jpg)" data-overlay="5">
+      <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block bg-img" style="background-image: url(<?= base_url() ?>assets/theadmin/assets/img/bg/bg.jpg)" data-overlay="5">
 
         <div class="row h-100 pl-50">
           <div class="col-md-10 col-lg-8 align-self-end">
-            <img src="<?= base_url() ?>assets/theadmin/assets/img/logo-light-lg.png" alt="...">
             <br><br><br>
             <h4 class="text-white"><strong>Bancheese</strong> Point Of Sale</h4>
             <p class="text-white">Copyrigt©<?=date('Y')?> - Powered By <a href="#"><b>Anasera Studio.</b></a></p>
@@ -38,8 +37,6 @@
         </div>
 
       </div>
-
-
 
       <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
         <div class="px-80 py-30">
@@ -74,7 +71,7 @@
             </div>
 
             <div class="form-group">
-              <button class="btn btn-bold btn-block btn-primary" type="submit">Login</button>
+              <button class="btn btn-bold btn-block btn-warning" type="submit">Login</button>
             </div>
           </form>
 

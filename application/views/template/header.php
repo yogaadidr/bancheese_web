@@ -20,7 +20,7 @@
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="<?= base_url() ?>assets/theadmin/assets/img/apple-touch-icon.png">
-    <link rel="icon" href="<?= base_url() ?>assets/theadmin/assets/img/favicon.png">
+    <link rel="icon" href="<?= base_url() ?>assets/theadmin/assets/img/icon.png">
 
     <!--  Open Graph Tags -->
     <meta property="og:title" content="The Admin Template of 2018!">
