@@ -17,16 +17,7 @@ include (APPPATH . 'views/template/footer/f_datatable.php');
             extend: 'excel',
             footer:true,
             text: 'Save as Excel',
-            title:'Laporan',
-            exportOptions: {
-                columns: ':visible'
-            }
-        },
-        {
-            extend: 'print',
-            footer:true,
-            text: 'Print',
-            title:'Laporan',
+            title:'Laporan transaksi',
             exportOptions: {
                 columns: ':visible'
             }

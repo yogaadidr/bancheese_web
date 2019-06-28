@@ -25,15 +25,6 @@ include (APPPATH . 'views/template/footer/f_datatable.php');
 				exportOptions: {
 					columns: [1,2,3,5,6,8,9,11,12,14]
 				}
-			},
-			{
-				extend: 'print',
-				footer:true,
-				text: 'Print',
-				title:'Laporan ' + '<?=isset($bahan)?$bahan:""?>' ,
-				exportOptions: {
-					columns: [1,2,3,5,6,8,9,11,12,14]
-				}
 			}
 			],
 			order: [[ 0, "desc" ]],
