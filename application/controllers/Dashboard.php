@@ -65,6 +65,20 @@ class Dashboard extends BaseController {
 
 	public function detailDashboard($tgl,$periode,$cabang='all'){
 		$data['menu']="dashboard";
+
+		if (strlen($tgl)==8) {
+			$setTgl=$tgl;
+			$format = "d F Y";
+		}elseif (strlen($tgl)==6) {
+			$setTgl = $tgl.'01';
+			$format = "F Y";
+		}else{
+			$setTgl = $tgl.'0101';
+			$format = "Y";
+		}
+		
+		$data['cabang'] = ($cabang!='all')?$this->services_model->getCabang($cabang)['DATA']['NAMA_CABANG']:'All Cabang';
+		$data['tanggal'] = date_format(date_create($setTgl),$format);
 		$data['sub_menu']="dashboard_detail";
 		$data['t_detail']=$this->services_model->getDetailDashboard($tgl,$periode,$cabang)['DATA'];
 		// var_dump($data['t_detail']);

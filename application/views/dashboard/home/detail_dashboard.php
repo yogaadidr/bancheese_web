@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body">
           <a href="javascript:history.back()"><span class="fa fa-arrow-left"></span> Kembali</a>
-          <h3>Detail Transaksi</h3>
+          <h3>Detail Transaksi <?=$tanggal." ".$cabang?></h3>
           <table id="dashboard_dt" class="table table-striped table-bordered"cellspacing="0" data-provide="datatables">
             <thead>
               <tr>

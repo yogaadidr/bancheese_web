@@ -39,7 +39,7 @@ if($list != null){
 
             <div class="col-md-12">
               <div class="form-group">
-                <label for="satuan">Satuan</label>
+                <label for="satuan">Satuan <small>Pcs,Kg,Pack Dll</small></label>
                 <input type="text" class="form-control" name="SATUAN" value="<?= $satuan ?>" placeholder="Satuan" id="SATUAN">
               </div>
             </div>

@@ -17,7 +17,7 @@ include (APPPATH . 'views/template/footer/f_datatable.php');
             extend: 'excel',
             footer:true,
             text: 'Save as Excel',
-            title:'Laporan transaksi',
+            title:'Laporan transaksi '+ '<?=$tanggal." ".$cabang?>',
             exportOptions: {
                 columns: ':visible'
             }
