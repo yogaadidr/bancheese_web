@@ -13,6 +13,23 @@ class Services_model extends CI_Model {
         return $this->getAPI("POST","login",$data);
     }
 
+    // APK 
+    public function getAllApk(){
+        return $this->getAPI("GET","getVersion");
+    }
+    public function getApk($id){
+        return $this->getAPI("GET","getVersion/".$id);
+    }
+    public function addApk($body){
+        return $this->getAPI("POST","addVersion",$body);
+    }
+    public function editApk($id,$body){
+        return $this->getAPI("POST","getVersion/".$id,$body);
+    }
+    public function deleteApk($id){
+        return $this->getAPI("DELETE","getVersion/".$id);
+    }
+
     // BAHAN BAKU
     public function getAllBahan(){
         return $this->getAPI("GET","bahanbaku");
