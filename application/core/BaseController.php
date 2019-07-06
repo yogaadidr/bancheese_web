@@ -34,8 +34,9 @@ class BaseController extends CI_Controller {
 		$menu5 = array("name"=>"Kelola Menu","id"=>"menu","icon"=>"icon fa fa-cutlery","link"=>"menu");
 		$menu6 = array("name"=>"Kelola Cabang","id"=>"cabang","icon"=>"icon fa fa-sitemap","link"=>"cabang");
 		$menu7 = array("name"=>"Kelola User","id"=>"user","icon"=>"icon fa fa-users","link"=>"user");
+		$menu8 = array("name"=>"Download APK","id"=>"download","icon"=>"icon fa fa-download","link"=>"download");
 
-		return array($menu1,$menu2,$menu3,$menu4,$menu5,$menu6,$menu7);
+		return array($menu1,$menu2,$menu3,$menu4,$menu5,$menu6,$menu7,$menu8);
 	}
 	
 }
