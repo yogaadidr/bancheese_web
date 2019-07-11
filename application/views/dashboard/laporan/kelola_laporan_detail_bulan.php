@@ -53,7 +53,8 @@
             </tbody>
             <tfoot>
               <td></td>
-              <td colspan="2" align="right"><b>Total</b></td>
+              <td></td>
+              <td align="right"><b>Total</b></td>
               <td></td>
               <td></td>
               <td></td>

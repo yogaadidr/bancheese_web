@@ -25,6 +25,7 @@
                 <th width="20">No.</th>
                 <th>Nama Menu</th>
                 <th>Harga Satuan</th>
+                <th>Status</th>
                 <th width="20"></th>
               </tr>
             </thead>
@@ -38,6 +39,7 @@
                     <td><?= $i ?>.</td>
                     <td><?= $list['NAMA_MENU']?></td>
                     <td>Rp. <?= number_format($list['HARGA'])?></td>
+                    <td><?= ($list['STATUS']=='1')?'Active':'Non Active'?></td>
                     <td>
                       <div class="dropdown">
                         <button type="button" class="btn btn-sm btn-primary dropdown-toggle no-arrow" data-toggle="dropdown">

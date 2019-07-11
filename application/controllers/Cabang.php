@@ -163,8 +163,8 @@ class Cabang extends BaseController {
 			redirect("cabang/menuCabang/$id_cabang");
 		}else{
 			$this->services_model->editMenuCabang($i->post("ID_MENU_DETAIL"),$body);
-			$this->session->set_flashdata("status","<div class='alert alert-success'>Data cabang telah diubah</div>");
-			redirect("cabang/menuCabang/".$id_cabang);
+			$this->session->set_flashdata("status","<div class='alert alert-success'>Data menu cabang telah diubah</div>");
+			redirect("cabang/editMenuCabang/".$i->post("ID_MENU_DETAIL").'/'.$id_cabang);
 		}
 	}
 

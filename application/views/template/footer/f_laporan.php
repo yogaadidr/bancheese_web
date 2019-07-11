@@ -27,10 +27,10 @@ include (APPPATH . 'views/template/footer/f_datatable.php');
 				}
 			}
 			],
+                  fixedColumns: true,
+                  scrollX: true,
+                  scrollCollapse: true,
 			order: [[ 0, "desc" ]],
-			scrollX: true,
-			scrollCollapse: true,
-			fixedColumns: true,
 			columnDefs:[
 			{
 				"targets": 5,

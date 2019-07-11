@@ -41,9 +41,10 @@ $checkbox = ($status != '0')?'checked':'';
                 <label for="menu">Menu Master</label>
                 <select class="form-control" name="MASTER_MENU" id="MASTER_MENU">
                   <option selected disabled value="0">Select Menu</option>
-                  <?php foreach ($master_menu as $list_m) :?>
+                  <?php foreach ($master_menu as $list_m) :
+                    if ($list_m['STATUS']=='1') {?>
                     <option <?=$list_m['ID_MENU']==$id_menu?'selected':''?> value="<?=$list_m['ID_MENU'].'#'.$list_m['NAMA_MENU']?>"><?=$list_m['NAMA_MENU']?></option>
-                  <?php endforeach?>
+                  <?php }endforeach?>
                 </select>
                 <small><a href="#" id="GANTI_MENU" <?=$hidden?>><?=$hidden==''?'Batal':'Ganti Nama Menu'?></a></small>
               </div>

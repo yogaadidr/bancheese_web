@@ -22,6 +22,7 @@
               <tr>
                 <th width="20">No.</th>
                 <th>Nama Cabang</th>
+                <th>Pemilik</th>
                 <th>Alamat</th>
                 <th>Jam Operasional</th>
                 <th width="10">Menu Cabang</th>
@@ -37,6 +38,7 @@
                 <tr>
                   <td><?= $i ?>.</td>
                   <td><?= $list['NAMA_CABANG']?></td>
+                  <td><?= $list['NAMA_PEMILIK']?></td>
                   <td><?= $list['ALAMAT']?></td>
                   <td><?= $list['JAM_BUKA'].'-'.$list['JAM_TUTUP']?></td>
                   <td><a href="<?= base_url() ?>cabang/menuCabang/<?= $list['ID_CABANG'] ?>" class="btn btn-sm btn-warning"><i class="fa fa-cutlery"></i> List Menu</a></td>

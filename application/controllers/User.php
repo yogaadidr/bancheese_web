@@ -42,7 +42,7 @@ class User extends BaseController {
 			$this->session->set_userdata("userdataLogin",$result);
 			redirect(base_url());
 		}else{
-			$this->session->set_flashdata('alert', '<div class="alert alert-warning">Username atau password tidak ditemukan</div>');
+			$this->session->set_flashdata('alert', '<div class="alert alert-warning">'.$result['MESSAGE'].'</div>');
 			redirect("login");
 		}
 	}

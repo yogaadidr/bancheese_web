@@ -27,7 +27,9 @@
         <ul class="topbar-btns">
           <li class="dropdown">
             <?=$this->session->userdata("userdataLogin")["username"];?>
-            <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="<?= base_url() ?>vendor/theadmin/assets/img/avatar/1.jpg" alt="..."></span>
+            <span class="topbar-btn" data-toggle="dropdown">
+              <i class="fa fa-ellipsis-h"></i> 
+            </span>
             <div class="dropdown-menu dropdown-menu-right">
               <!-- <a class="dropdown-item" href="page/profile.html"><i class="ti-user"></i> Profile</a>
              
