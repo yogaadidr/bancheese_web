@@ -98,6 +98,35 @@ class Services_model extends CI_Model {
         return $this->getAPI("DELETE","menudetail/".$id);   
     }
 
+
+    // //BAHAN BAKU CABANG
+    public function getBahanCabang($id){
+        return $this->getAPI("GET","vsaldo/".$id);
+    }
+    public function kreditBahan($body){
+        return $this->getAPI("POST","kredit",$body);   
+    }
+    public function debetBahan($body){
+        return $this->getAPI("POST","debet",$body);   
+    }
+    public function deleteDebet($id){
+        return $this->getAPI("DELETE","debet/".$id);
+    }
+    public function deleteKredit($id){
+        return $this->getAPI("DELETE","kredit/".$id);
+    }
+    public function editBahanCabang($id,$body){
+        return $this->getAPI("POST","menudetail/".$id,$body);   
+    }
+
+    // KREDIT
+    public function getDataKredit($harga,$id_bahan,$id_cabang){
+        return $this->getAPI("GET","kredit/".$harga.'/'.$id_bahan.'/'.$id_cabang);
+    }
+
+    public function getDataDebet($harga,$id_bahan,$id_cabang){
+        return $this->getAPI("GET","debet/".$harga.'/'.$id_bahan.'/'.$id_cabang);
+    }
     
 
     // MASTER MENU
@@ -135,8 +164,9 @@ class Services_model extends CI_Model {
     }
 
     // TRANSAKSI //DASHBOARD
-    public function getTransaksi($cabang='',$periode='',$tahun='',$bulan=''){
+    public function getTransaksi($status,$cabang='',$periode='',$tahun='',$bulan=''){
         $get = "?";
+        $get .=($status!='')?"&status=$status":"";
         $get .=($cabang!='')?"&cabang=$cabang":"";
         $get .=($periode!='')?"&periode=$periode":"";
         $get .=($tahun!='')?"&tgl_transaksi=$tahun":"";
@@ -149,8 +179,8 @@ class Services_model extends CI_Model {
         return $this->getAPI("GET","vtransaksi/tahun");
     }
 
-    public function getDetailDashboard($tgl,$periode,$cabang){
-        $get = "?cabang=$cabang&periode=$periode&tgl=$tgl";
+    public function getDetailDashboard($status,$tgl,$periode,$cabang){
+        $get = "?cabang=$cabang&periode=$periode&tgl=$tgl&status=$status";
         return $this->getAPI("GET","vtransaksidetail".$get);
     }
 

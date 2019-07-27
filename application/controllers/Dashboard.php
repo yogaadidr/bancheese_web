@@ -46,6 +46,9 @@ class Dashboard extends BaseController {
 		$data['master_tahun'] = $this->services_model->getTahunTransaksi()['DATA'];
 		$data['master_cabang'] = $this->services_model->getAllCabang()["DATA"];
 
+		$data['get_grafik'] = ($this->input->get('grafik')=='')?'Trend':$this->input->get('grafik');
+		$data['status'] = ($this->input->get('status')=='')?'Sukses':$this->input->get('status');
+
 
 		$data['load_trend']="loadTrend".$get_periode."();";
 		$data['cabang']=$get_cabang;
@@ -54,16 +57,16 @@ class Dashboard extends BaseController {
 		$data['periode']=$get_periode;
 
 		if ($data['periode'] == 'Monthly') {
-			$data['detail_penjualan'] = $this->services_model->getTransaksi($data['cabang'],$data['periode'],$data['tahun'])['DATA'];
+			$data['detail_penjualan'] = $this->services_model->getTransaksi($data['status'],$data['cabang'],$data['periode'],$data['tahun'])['DATA'];
 		}else if ($data['periode'] == 'Yearly') {
-			$data['detail_penjualan'] = $this->services_model->getTransaksi($data['cabang'],$data['periode'])['DATA'];
+			$data['detail_penjualan'] = $this->services_model->getTransaksi($data['status'],$data['cabang'],$data['periode'])['DATA'];
 		}else{
-			$data['detail_penjualan'] = $this->services_model->getTransaksi($data['cabang'],$data['periode'],$data['tahun'],$data['bulan'])['DATA'];
+			$data['detail_penjualan'] = $this->services_model->getTransaksi($data['status'],$data['cabang'],$data['periode'],$data['tahun'],$data['bulan'])['DATA'];
 		}
 		$this->loadView('dashboard/home/home.php',$data);
 	}
 
-	public function detailDashboard($tgl,$periode,$cabang='all'){
+	public function detailDashboard($tgl,$periode,$cabang='all',$status){
 		$data['menu']="dashboard";
 
 		if (strlen($tgl)==8) {
@@ -80,7 +83,7 @@ class Dashboard extends BaseController {
 		$data['cabang'] = ($cabang!='all')?$this->services_model->getCabang($cabang)['DATA']['NAMA_CABANG']:'All Cabang';
 		$data['tanggal'] = date_format(date_create($setTgl),$format);
 		$data['sub_menu']="dashboard_detail";
-		$data['t_detail']=$this->services_model->getDetailDashboard($tgl,$periode,$cabang)['DATA'];
+		$data['t_detail']=$this->services_model->getDetailDashboard($status,$tgl,$periode,$cabang)['DATA'];
 		// var_dump($data['t_detail']);
 		$this->loadView('dashboard/home/detail_dashboard.php',$data);
 	}

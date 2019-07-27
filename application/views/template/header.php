@@ -29,9 +29,6 @@
     <meta property="og:url" content="http://thetheme.io/theadmin/">
     <meta name="twitter:card" content="summary_large_image">
 
-
-    
-
     <script src="<?= base_url() ?>assets/theadmin/assets/js/core.min.js"></script>
     <script src="<?= base_url() ?>assets/theadmin/assets/js/script.min.js"></script>
     

@@ -1,9 +1,4 @@
-<!-- <?php
-include (APPPATH . 'views/template/footer/f_datatable.php');
-?> -->
-
 <script type="text/javascript">
-
 	$(document).ready(function(){
 		detailLaporan();
 	});

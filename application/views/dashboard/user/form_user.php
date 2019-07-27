@@ -41,14 +41,7 @@ if ($list != null) {
                 <input type="text" class="form-control" name="NAMA" value="<?= $nama ?>" placeholder="Nama Lengkap" id="NAMA">
               </div>
             </div>
-
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="hp">No HP</label>
-                <input type="text" class="form-control" name="HP" value="<?= $hp ?>" placeholder="No Hp" id="HP">
-              </div>
-            </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="role">Role</label>
                 <select class="form-control" name="ROLE" id="ROLE">
@@ -58,7 +51,13 @@ if ($list != null) {
                 </select>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="hp">No HP</label>
+                <input type="text" class="form-control" name="HP" value="<?= $hp ?>" placeholder="No Hp" id="HP">
+              </div>
+            </div>
+            <!-- <div class="col-md-4">
               <div class="form-group">
                 <label for="role">Cabang</label>
                 <select class="form-control" name="CABANG" id="CABANG">
@@ -71,7 +70,7 @@ if ($list != null) {
                     ?>
                   </select>
                 </div>
-              </div>
+              </div> -->
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="alamat">Alamat</label>

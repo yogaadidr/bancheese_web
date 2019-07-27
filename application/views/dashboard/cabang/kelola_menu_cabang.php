@@ -39,10 +39,13 @@
                     <td><?= $i ?>.</td>
                     <td><?= $list['NAMA_MENU']?></td>
                     <td>Rp. <?= number_format($list['HARGA'])?></td>
-                    <td><?= ($list['STATUS']=='1')?'Active':'Non Active'?></td>
+                    <td><?= ($list['STATUS']=='1')?'Active':'Non Active'?>
+                      <?= ($list['STATUS_MASTER']=='1')?'':'On Master Menu'?>
+                      
+                    </td>
                     <td>
                       <div class="dropdown">
-                        <button type="button" class="btn btn-sm btn-primary dropdown-toggle no-arrow" data-toggle="dropdown">
+                        <button type="button" class="btn btn-sm btn-primary dropdown-toggle no-arrow" data-toggle="dropdown" <?= ($list['STATUS_MASTER']=='1')?'':'disabled'?>>
                           <span class="fa fa-ellipsis-v"></span>
                         </button>
                         <div class="dropdown-menu">

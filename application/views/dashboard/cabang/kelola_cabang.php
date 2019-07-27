@@ -17,7 +17,7 @@
 
         </div>
         <div>
-          <table class="table table-striped table-bordered"cellspacing="0" data-provide="datatables">
+          <table class="table table-striped table-bordered"cellspacing="0" data-provide="datatables" id="tbl">
             <thead>
               <tr>
                 <th width="20">No.</th>
@@ -25,6 +25,7 @@
                 <th>Pemilik</th>
                 <th>Alamat</th>
                 <th>Jam Operasional</th>
+                <th width="10">Bahan Baku</th>
                 <th width="10">Menu Cabang</th>
                 <th width="5">Action</th>
               </tr>
@@ -41,6 +42,7 @@
                   <td><?= $list['NAMA_PEMILIK']?></td>
                   <td><?= $list['ALAMAT']?></td>
                   <td><?= $list['JAM_BUKA'].'-'.$list['JAM_TUTUP']?></td>
+                  <td><a href="<?= base_url() ?>cabang/bahanCabang/<?= $list['ID_CABANG'] ?>" class="btn btn-sm btn-warning"><i class="fa fa-cube"></i> Bahan Baku</a></td>
                   <td><a href="<?= base_url() ?>cabang/menuCabang/<?= $list['ID_CABANG'] ?>" class="btn btn-sm btn-warning"><i class="fa fa-cutlery"></i> List Menu</a></td>
                   <td>
                     <div class="dropdown dropleft">

@@ -22,8 +22,6 @@
 <script src="<?= base_url() ?>assets/theadmin/assets/js/app.min.js"></script>
 
 <script type="text/javascript">
-  
-
   $('#exampleModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) 
     var recipient = button.data('whatever') 
@@ -58,11 +56,20 @@ if ($menu == 'dashboard') {
   }else{
     include (APPPATH . 'views/template/footer/f_dashboard.php');
   }
-}
-if ($menu == 'laporan'){
+}elseif ($menu == 'laporan'){
   include (APPPATH . 'views/template/footer/f_laporan.php');
 }
 ?>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#tbl').DataTable({
+      "autoWidth": false,
+      scrollCollapse: true,
+      fixedColumns: true,
+    });
+  });
+</script>
 
 </body>
 </html>

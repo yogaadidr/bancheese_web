@@ -38,7 +38,10 @@ class User extends BaseController {
 
 		$result = $this->services_model->loginUser($body);
 		if($result['CODE'] == 200){
-			$result = array("username"=>$result['DATA']["nama_user"]);
+			$result = array(
+				"username"=>$result['DATA']["nama_user"],
+				"id_user"=>$result['DATA']["id_user"]
+			);
 			$this->session->set_userdata("userdataLogin",$result);
 			redirect(base_url());
 		}else{

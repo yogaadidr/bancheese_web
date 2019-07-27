@@ -17,7 +17,7 @@
 
         </div>  
         <div>
-          <table class="table table-striped table-bordered"cellspacing="0" data-provide="datatables">
+          <table class="table table-striped table-bordered"cellspacing="0" data-provide="datatables" id="tbl">
             <thead>
               <tr>
                 <th width="20">No.</th>

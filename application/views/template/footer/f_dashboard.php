@@ -7,10 +7,12 @@
  function loadTrend(){
   var periode = $("#periode").val();
   var cabang = $("#cabang").val();
-  var bulan = $("#bulan").val();
+  var bulan = $("#bulan").val()
   var tahun = $("#tahun").val();
+  var grafik = $("#grafik").val();
+  var status = $("#status").val();
 
-  var qwr_string = "?periode="+periode+"&cabang="+cabang+"&bulan="+bulan+"&tahun="+tahun;
+  var qwr_string = "?periode="+periode+"&cabang="+cabang+"&bulan="+bulan+"&tahun="+tahun+"&grafik="+grafik+"&status="+status;
 
   loadPage("Dashboard/Trend/loadTrendDaily"+qwr_string);
 }
@@ -28,7 +30,15 @@ function loadTable(){
       },
     },
     { "targets":0, "visible":false},
-    { "targets":3, "visible":false}
+    { "targets":3, "visible":false},
+    <?=($get_grafik=='Netto' && $status == 'Sukses')?'
+      { "targets":5, "visible":true},
+      { "targets":6, "visible":true},
+      { "targets":7, "visible":false},'
+    :'
+      { "targets":5, "visible":false},
+      { "targets":6, "visible":false},
+    '?>
     ],
     "footerCallback": function ( row, data, start, end, display ) {
       var api = this.api(), data;
@@ -81,6 +91,28 @@ function loadTable(){
     $( api.column( 4 ).footer() ).html(
       '<b>Rp. '+pageTotal.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +'<small> ( Rp. '+ total.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +' total)</small></b>'
       );
+
+    totalKredit = api
+    .column( 5 ,{ search:'applied' })
+    .data()
+    .reduce( function (a, b) {
+      return intVal(a) + intVal(b);
+    }, 0 );
+
+    $( api.column( 5 ).footer() ).html(
+      '<b>Rp. '+totalKredit.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +'<small> ( Rp. '+ totalKredit.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +' total)</small></b>'
+      );
+
+    totalNett = api
+    .column( 6 ,{ search:'applied' })
+    .data()
+    .reduce( function (a, b) {
+      return intVal(a) + intVal(b);
+    }, 0 );
+
+    $( api.column( 6 ).footer() ).html(
+      '<b>Rp. '+totalNett.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +'<small> ( Rp. '+ totalNett.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +' total)</small></b>'
+      );
   }
 });
 }
@@ -93,22 +125,26 @@ function loadTrendGraph(){
       data: [
       <?php 
       if (isset($detail_penjualan)) {
-        foreach ($detail_penjualan as $dp) {?>
-          { days: "<?=$dp['TGL_TRANSAKSI']?>", a: <?=$dp['NET_HARGA']?>},
-        <?php } }?>
-        ],
-        xkey: 'days',
-        parseTime: false,
-        ykeys: ['a'],
-        labels: ['Total Income'],
-        pointSize: 3,
-        pointStrokeColors: ['#a0d0e0'],
-        behaveLikeLine: true,
-        gridLineColor: '#ebebeb',
-        hideHover: 'auto',
-        lineColors: ['#a0d0e0'],
-        resize: true
-      });
+        foreach ($detail_penjualan as $dp) {
+          if ($get_grafik=='Trend') {?>
+            { days: "<?=$dp['TGL_TRANSAKSI']?>", a: <?=$dp['NET_HARGA']?>},
+          <?php }else{?>
+            { days: "<?=$dp['TGL_TRANSAKSI']?>", a: <?=$dp['NET_HARGA']?>, b:<?=$dp['KREDIT']?>},
+          <?php }} }?>
+          ],
+          xkey: 'days',
+          parseTime: false,
+          ykeys: <?=$get_grafik=='Trend'?"['a']":"['a','b']"?>,
+          labels: ['Total Income','Total Kredit'],
+          pointSize: 3,
+          fillOpacity: 0.4,
+          pointStrokeColors: <?=$get_grafik=='Trend'?"['#a0d0e0']":"['#a0d0e0','#b1bccb']"?>,
+          behaveLikeLine: true,
+          gridLineColor: '#ebebeb',
+          hideHover: 'auto',
+          lineColors: <?=$get_grafik=='Trend'?"['#a0d0e0']":"['#a0d0e0','#b1bccb']"?>,
+          resize: true
+        });
 
   });
 }

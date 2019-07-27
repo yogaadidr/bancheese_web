@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Cabang extends BaseController {
 
 	public $jam;
+	public $user;
 	function __construct(){
 		parent::__construct();
 		$this->load->model('services_model');
@@ -12,6 +13,8 @@ class Cabang extends BaseController {
 			redirect('login');
 		}
 		$this->jam = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
+
+		$this->user = $this->session->userdata("userdataLogin")['id_user'];
 	}
 
 	public function index($id = null,$opt = null)
@@ -165,6 +168,99 @@ class Cabang extends BaseController {
 			$this->services_model->editMenuCabang($i->post("ID_MENU_DETAIL"),$body);
 			$this->session->set_flashdata("status","<div class='alert alert-success'>Data menu cabang telah diubah</div>");
 			redirect("cabang/editMenuCabang/".$i->post("ID_MENU_DETAIL").'/'.$id_cabang);
+		}
+	}
+
+	public function bahanCabang($id){
+		$data['menu']= "cabang";
+		$data['cabang'] = $this->services_model->getCabang($id)['DATA'];
+		$data['list'] = $this->services_model->getBahanCabang($id)["DATA"];
+		$data['id_cabang'] = $id;
+		$this->loadView('dashboard/cabang/kelola_bahan_cabang',$data);
+	}
+
+	public function tambahBahanCabang($id_cabang, $action = null){
+		if($action != null  && $action == 'simpan'){
+			$this->modifyDataBahan($this->input,$id_cabang,"tambah");
+		}
+		$data['menu']= "cabang";
+		$data['opt'] = "Tambah";
+		$data['id_cabang'] = $id_cabang;
+		$data['master_bahan'] = $this->services_model->getAllBahan()["DATA"];
+		$data['link']= base_url()."cabang/form_bahan_cabang/$id_cabang/simpan";
+		$data['list'] = null;
+		$this->loadView('dashboard/cabang/form_bahan_cabang',$data);
+	}
+
+	public function debetBahanCabang($id_bahan='',$id_cabang='', $action = null){
+		if($action != null  && $action == 'debet'){
+			$this->modifyDataBahan($this->input,$id_cabang,"debet");
+		}
+		$harga = round($this->input->get('hrg'));
+		$data['menu']= "cabang";
+		$data['opt'] = "Debet";
+		$data['id_cabang'] = $id_cabang;
+		$data['id_bahan'] = $id_bahan;
+		$data['link']= base_url()."cabang/debetBahanCabang/$id_bahan/$id_cabang/debet";
+		$data['list'] = $this->services_model->getDataDebet($harga,$id_bahan,$id_cabang)['DATA'];
+		$this->loadView('dashboard/cabang/form_bahan_cabang',$data);
+	}
+
+	public function kreditBahanCabang($id_bahan='',$id_cabang='', $action = null){
+		if($action != null  && $action == 'kredit'){
+			$this->modifyDataBahan($this->input,$id_cabang,"kredit");
+		}
+		$harga = round($this->input->get('hrg'));
+		$data['menu']= "cabang";
+		$data['opt'] = "Kredit";
+		$data['id_cabang'] = $id_cabang;
+		$data['id_bahan'] = $id_bahan;
+		$data['link']= base_url()."cabang/kreditBahanCabang/$id_bahan/$id_cabang/kredit";
+		$data['list'] = $this->services_model->getDataKredit($harga,$id_bahan,$id_cabang)['DATA'];
+
+		$this->loadView('dashboard/cabang/form_bahan_cabang',$data);
+	}
+
+	public function hapusDebetCabang(){
+		$id = $this->input->post("id_hapus");
+		$cek = $this->services_model->deleteDebet($id);
+		if ($cek['CODE'] == 200) {
+			$this->session->set_flashdata("status","<div class='alert alert-success'>Data berhasil dihapus</div>");
+		}else{
+			$this->session->set_flashdata("status","<div class='alert alert-danger'>Gagal menghapus,Data telah digunakan untuk transaksi</div>");
+		}
+		redirect($_SERVER['HTTP_REFERER']);
+	}
+
+	public function hapusKreditCabang(){
+		$id = $this->input->post("id_hapus");
+		$cek = $this->services_model->deleteKredit($id);
+		if ($cek['CODE'] == 200) {
+			$this->session->set_flashdata("status","<div class='alert alert-success'>Data berhasil dihapus</div>");
+		}else{
+			$this->session->set_flashdata("status","<div class='alert alert-danger'>Gagal menghapus,Data telah digunakan untuk transaksi</div>");
+		}
+		redirect($_SERVER['HTTP_REFERER']);
+	}
+
+	public function modifyDataBahan($i, $id_cabang, $type){
+		$body = array(
+			"id_bahan" => $i->post("ID_BAHAN"),
+			"id_cabang" => $i->post("ID_CABANG"),
+			"id_user" => $this->user,
+			"qty" => $i->post("QTY"),
+			"harga" => $i->post("HARGA"),
+		);
+		if($type == "debet"){
+			$this->services_model->debetBahan($body);
+			$this->session->set_flashdata("status","<div class='alert alert-success'>Sukses debet bahan cabang</div>");
+			redirect($_SERVER['HTTP_REFERER']);
+		}else{
+			$body["id_debet"] = $i->post("ID_DEBET");
+			var_dump($body);
+			$this->services_model->kreditBahan($body);
+			$this->session->set_flashdata("status","<div class='alert alert-success'>Sukses kredit bahan cabang</div>");
+			redirect("cabang/bahanCabang/$id_cabang");
 		}
 	}
 
