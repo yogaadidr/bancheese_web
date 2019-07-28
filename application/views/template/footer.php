@@ -71,5 +71,54 @@ if ($menu == 'dashboard') {
   });
 </script>
 
+<script type="text/javascript">
+  function fetchdata(){
+   $.ajax({
+    url: '<?php echo base_url();?>Notif/getNotif',
+    dataType: 'JSON',
+
+    success: function(data){
+      var html='';
+      for (var i = 0; i < data['count_notif']; i++) {
+        var newMedia = data['data'][i]['VIEWED']==0?"media-new":"";
+        html += '<a class="media '+newMedia+'" href="#" onClick="updateNotif('+data['data'][i]['ID_NOTIF']+')"><span class="avatar bg-success"><i class="fa fa-bell"></i></span><div class="media-body"><p>'+data['data'][i]['MESSAGE']+'</p><time>'+data['data'][i]['DTM_CRT']+'</time></div></a>'
+      }
+      $("#printNotif").html(html);
+      if (data['sum_notif'] > 0) {
+        $("#sum_notif").text(data['sum_notif']);
+        $("#bell").addClass("has-new");
+      }else{
+        $("#sum_notif").text("");
+        $("#bell").removeClass("has-new");
+      }
+    },
+    complete:function(data){
+     setTimeout(fetchdata,2000);
+   }
+ });
+ }
+
+ function updateNotif(id){
+   $.ajax({
+    url: '<?php echo base_url();?>Notif/updateNotif/'+id,
+    dataType: 'JSON'
+  });
+ }
+
+ function deleteNotif(){
+   $.ajax({
+    url: '<?php echo base_url();?>Notif/deleteNotif',
+    dataType: 'JSON'
+  });
+ }
+
+ $(document).ready(function(){
+   setTimeout(fetchdata,2000);
+ });
+
+
+
+</script>
+
 </body>
 </html>

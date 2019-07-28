@@ -196,6 +196,19 @@ class Services_model extends CI_Model {
         return $this->getAPI("GET","vsaldo/$id_cbg".$get);
     }
 
+    // NOTIF
+    public function getNotif(){
+        return $this->getAPI("GET","notif");
+    }
+
+    public function editNotif($id){
+        return $this->getAPI("POST","notif/".$id);   
+    }
+
+    public function deleteNotif(){
+        return $this->getAPI("POST","notif");   
+    }
+
 
     public function getAPI($method,$url,$body = null){
 

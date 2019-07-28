@@ -73,7 +73,7 @@ $link_del = ($opt=='Kredit')?'cabang/hapusKreditCabang':'cabang/hapusDebetCabang
 
                 <label for="bahan_baku">Nama bahan baku</label>
                 <?php if ($opt=='Tambah') {?>
-                  <select class="form-control" id=bahan>
+                  <select class="form-control" id=bahan onchange="getIdBahan()">
                     <option disabled selected>Pilih Bahan</option>
                     <?php 
                     foreach ($master_bahan as $bahan) {?>
@@ -144,11 +144,12 @@ $link_del = ($opt=='Kredit')?'cabang/hapusKreditCabang':'cabang/hapusDebetCabang
 <script type="text/javascript">
   function cekSaldo(){
     var action = "<?=$opt?>";
-    var qty =  $('#QTY').val();
-    var stk =  $('#STOK').val();
+    var qty =  parseInt($('#QTY').val());
+    var stk =  parseInt($('#STOK').val());
 
     if (action == "Kredit") {
       if (qty>stk) {
+        
         $('#MSG').text("*Qty melebihi stok");
         $('#QTY').val('');
       }else if (qty<1) {
@@ -161,5 +162,10 @@ $link_del = ($opt=='Kredit')?'cabang/hapusKreditCabang':'cabang/hapusDebetCabang
       $('#MSG').text("*Qty harus lebih dari 0");
       $('#QTY').val('');
     }
+  }
+
+  function getIdBahan(){
+    var getId =  $('#bahan').val();
+    $('#ID_BAHAN').val(getId);
   }
 </script>

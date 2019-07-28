@@ -98,8 +98,8 @@ class Cabang extends BaseController {
 	}
 
 	public function tambahMenuCabang($id_cabang, $action = null){
-		if($action != null  && $action == 'simpan'){
-			$this->modifyDataMenu($this->input,$id_cabang,"tambah");
+		if($action != null  && $action == 'debet'){
+			$this->modifyDataBahan($this->input,$id_cabang,"tambah");
 		}
 		$data['menu']= "cabang";
 		$data['opt'] = "Tambah";
@@ -181,13 +181,13 @@ class Cabang extends BaseController {
 
 	public function tambahBahanCabang($id_cabang, $action = null){
 		if($action != null  && $action == 'simpan'){
-			$this->modifyDataBahan($this->input,$id_cabang,"tambah");
+			$this->modifyDataBahan($this->input,$id_cabang,"debet");
 		}
 		$data['menu']= "cabang";
 		$data['opt'] = "Tambah";
 		$data['id_cabang'] = $id_cabang;
 		$data['master_bahan'] = $this->services_model->getAllBahan()["DATA"];
-		$data['link']= base_url()."cabang/form_bahan_cabang/$id_cabang/simpan";
+		$data['link']= base_url()."cabang/tambahBahanCabang/$id_cabang/simpan";
 		$data['list'] = null;
 		$this->loadView('dashboard/cabang/form_bahan_cabang',$data);
 	}

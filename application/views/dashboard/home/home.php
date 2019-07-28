@@ -1,5 +1,6 @@
 <?php 
 $get_per = ($this->input->get('periode')=='')?'Daily':$this->input->get('periode');
+$get_idCabang = ($this->input->get('cabang')=='')?'all':$this->input->get('cabang');
 ?>
 <div class="main-content">
 	<div class="row" style="position: relative;">
@@ -105,7 +106,7 @@ $get_per = ($this->input->get('periode')=='')?'Daily':$this->input->get('periode
 										<td><?=$dp['NET_HARGA']?></td>
 										<td><?=$dp['KREDIT']?></td>
 										<td><?=number_format(($dp['NET_HARGA']-$dp['KREDIT']),2)?></td>
-										<td><a href="<?=base_url('Dashboard/detailDashboard/').$dp['PERIODE'].'/'.$get_per.'/'.$this->input->get('cabang')."/$status"?>" class="btn btn-sm btn-warning"><i class="fa fa-file-text"></i> Detail Penjualan</a></td>
+										<td><a href="<?=base_url('Dashboard/detailDashboard/').$dp['PERIODE'].'/'.$get_per.'/'.$get_idCabang."/$status"?>" class="btn btn-sm btn-warning"><i class="fa fa-file-text"></i> Detail Penjualan</a></td>
 									</tr>
 								<?php }}?>
 							</tbody>
