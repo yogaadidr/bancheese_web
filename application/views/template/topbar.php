@@ -42,7 +42,7 @@
 
           <!-- Notifications -->
           <li class="dropdown d-none d-md-block">
-            <span id="bell" class="topbar-btn has-new" data-toggle="dropdown"><i class="ti-bell"></i><small id="sum_notif"></small></span>
+            <span id="bell" class="topbar-btn has-new" data-toggle="dropdown"><i class="fa fa-bell"></i><small id="sum_notif"></small></span>
             <div class="dropdown-menu dropdown-menu-right">
 
               <div class="media-list media-list-hover media-list-divided media-list-xs" id="printNotif">

@@ -24,6 +24,13 @@ $link_del = ($opt=='Kredit')?'cabang/hapusKreditCabang':'cabang/hapusDebetCabang
               $i = 1;
               if ($list != null) {
                 foreach ($list as $list){ 
+                  if ($opt == 'Kredit') {
+                    $kredit = base_url().'cabang/kreditBahanCabang/'.$list['ID_BAHAN'].'/'.$id_cabang."?nm=".$list['NAMA_BAHAN']."&hrg=".$list['HARGA']."&db=".$list['ID_DEBET']."&kr=".$list['ID_KREDIT']."&stk=".$this->input->get("stk")."&qty=".$list['QTY']; 
+                  }else{ 
+                    $debet = base_url().'cabang/debetBahanCabang/'.$list['ID_BAHAN'].'/'.$id_cabang."?nm=".$list['NAMA_BAHAN']."&hrg=".$list['HARGA']."&db=".$list['ID_DEBET']."&qty=".$list['QTY']; 
+                  }
+                  
+                  // $this->input->get("stk")
                   ?>
                   <tr>
                     <td><?= $i ?>.</td>
@@ -36,6 +43,8 @@ $link_del = ($opt=='Kredit')?'cabang/hapusKreditCabang':'cabang/hapusDebetCabang
                           <span class="fa fa-ellipsis-v"></span>
                         </button>
                         <div class="dropdown-menu">
+                          <a class="dropdown-item" href="<?=($opt=='Kredit')?$kredit:$debet?>">Edit <i class="fa fa-edit"></i></a>
+
                           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="<?=($opt=='Kredit')?$list['ID_KREDIT']:$list['ID_DEBET']?>">Hapus <i class="fa fa-trash-o"></i></a>
                         </div>
 
@@ -70,6 +79,7 @@ $link_del = ($opt=='Kredit')?'cabang/hapusKreditCabang':'cabang/hapusDebetCabang
                 <input type="text" class="form-control" name="ID_BAHAN" value="<?= isset($id_bahan)?$id_bahan:'' ?>" id="ID_BAHAN" hidden>
                 <input type="text" class="form-control" name="ID_CABANG" value="<?= isset($id_cabang)?$id_cabang:'' ?>" id="ID_CABANG" hidden>
                 <input type="text" class="form-control" name="ID_DEBET" value="<?= $this->input->get("db")?>" id="ID_DEBET" hidden>
+                <input type="text" class="form-control" name="ID_KREDIT" value="<?= $this->input->get("kr")?>" id="ID_KREDIT" hidden>
 
                 <label for="bahan_baku">Nama bahan baku</label>
                 <?php if ($opt=='Tambah') {?>
@@ -82,38 +92,38 @@ $link_del = ($opt=='Kredit')?'cabang/hapusKreditCabang':'cabang/hapusDebetCabang
                     ?>
                   </select>
                 <?php }else{?>
-                <input type="text" class="form-control" name="NAMA_BAHAN" value="<?= $this->input->get("nm")?>" placeholder="Nama Bahan Baku" id="NAMA_BAHAN" readonly>
-              <?php } ?>
+                  <input type="text" class="form-control" name="NAMA_BAHAN" value="<?= $this->input->get("nm")?>" placeholder="Nama Bahan Baku" id="NAMA_BAHAN" readonly>
+                <?php } ?>
+              </div>
             </div>
-          </div>
 
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="satuan">Harga</label>
-              <input type="text" class="form-control" name="HARGA" value="<?= $this->input->get("hrg")?>" placeholder="Harga" id="HARGA" <?=$opt=='Tambah'?'':'readonly'?>>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="satuan">Harga</label>
+                <input type="text" class="form-control" name="HARGA" value="<?= $this->input->get("hrg")?>" placeholder="Harga" id="HARGA" <?=$opt=='Tambah'?'':'readonly'?>>
+              </div>
             </div>
-          </div>
 
-          <div class="col-md-12" <?=($opt=='Kredit')?'':'style="display:none"'?>>
-            <div class="form-group">
-              <label for="satuan">Stok Sisa</label>
-              <input type="text" class="form-control" name="STOK" value="<?= $this->input->get("stk")?>" placeholder="Stok" id="STOK" readonly>
+            <div class="col-md-12" <?=($opt=='Kredit')?'':'style="display:none"'?>>
+              <div class="form-group">
+                <label for="satuan">Stok Sisa</label>
+                <input type="text" class="form-control" name="STOK" value="<?= $this->input->get("stk")+$this->input->get("qty")?>" placeholder="Stok" id="STOK" readonly>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="satuan">Qty <?= $opt ?></label>
+                <i id="MSG" style="color: #e74c3c"></i>
+                <input type="text" class="form-control" name="QTY" value="<?= $this->input->get("qty")?>" onblur="cekSaldo()" placeholder="Qty <?= $opt ?>" id="QTY" required>
+              </div>
             </div>
           </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="satuan">Qty <?= $opt ?></label>
-              <i id="MSG" style="color: #e74c3c"></i>
-              <input type="text" class="form-control" name="QTY" value="" onblur="cekSaldo()" placeholder="Qty <?= $opt ?>" id="QTY" required>
-            </div>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Simpan</button>
-      </form>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
 
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 <div class="modal  fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -149,7 +159,7 @@ $link_del = ($opt=='Kredit')?'cabang/hapusKreditCabang':'cabang/hapusDebetCabang
 
     if (action == "Kredit") {
       if (qty>stk) {
-        
+
         $('#MSG').text("*Qty melebihi stok");
         $('#QTY').val('');
       }else if (qty<1) {

@@ -60,6 +60,7 @@ class Kategori extends BaseController {
 	private function modifyData($i, $type){
 		$body = array(
 			"nama_kategori"=>$i->post("NAMA_KATEGORI"),
+			"jenis"=>$i->post("JENIS"),
 			"satuan"=>$i->post("SATUAN"),
 			"id_kategori"=>$i->post("KATEGORI")
 		);

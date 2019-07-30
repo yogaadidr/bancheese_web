@@ -63,6 +63,9 @@ class Services_model extends CI_Model {
     public function deleteKategori($id){
         return $this->getAPI("DELETE","kategori/".$id);
     }
+    public function getKategoriBahan($type){
+        return $this->getAPI("GET","kategori/jenis/".$type);
+    }
 
     //CABANG
     public function getAllCabang(){
@@ -115,8 +118,31 @@ class Services_model extends CI_Model {
     public function deleteKredit($id){
         return $this->getAPI("DELETE","kredit/".$id);
     }
+    public function editDebetBahan($id,$body){
+        return $this->getAPI("POST","debet/".$id,$body);   
+    }
+    public function editKreditBahan($id,$body){
+        return $this->getAPI("POST","kredit/".$id,$body);   
+    }
     public function editBahanCabang($id,$body){
         return $this->getAPI("POST","menudetail/".$id,$body);   
+    }
+
+    // // PENGELUARAN CABANG
+    public function getAllPengeluaranCabang($id_cabang){
+        return $this->getAPI("GET","transaksi_kredit/cabang/".$id_cabang); 
+    }
+    public function getPengeluaranCabang($id_transaksi){
+        return $this->getAPI("GET","transaksi_kredit/".$id_transaksi ); 
+    }
+    public function addPengeluaranCabang($body){
+        return $this->getAPI("POST","transaksi_kredit",$body);
+    }
+    public function ediPengeluaranCabang($id,$body){
+        return $this->getAPI("POST","transaksi_kredit/".$id,$body);
+    }
+    public function deletePengeluaranCabang($id){
+        return $this->getAPI("DELETE","transaksiKredit/".$id);
     }
 
     // KREDIT

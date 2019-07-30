@@ -81,7 +81,9 @@ if ($menu == 'dashboard') {
       var html='';
       for (var i = 0; i < data['count_notif']; i++) {
         var newMedia = data['data'][i]['VIEWED']==0?"media-new":"";
-        html += '<a class="media '+newMedia+'" href="#" onClick="updateNotif('+data['data'][i]['ID_NOTIF']+')"><span class="avatar bg-success"><i class="fa fa-bell"></i></span><div class="media-body"><p>'+data['data'][i]['MESSAGE']+'</p><time>'+data['data'][i]['DTM_CRT']+'</time></div></a>'
+        var link = "<?=base_url()?>cabang/";
+        link += (data['data'][i]['KATEGORI'] == '0')?'bahanCabang/'+data['data'][i]['ID_CABANG']:'pengeluaranCabang/'+data['data'][i]['ID_CABANG'];
+        html += '<a class="media '+newMedia+'" href="'+link+'" onClick="updateNotif('+data['data'][i]['ID_NOTIF']+')"><span class="avatar bg-success"><i class="fa fa-bell"></i></span><div class="media-body"><p>'+data['data'][i]['MESSAGE']+'</p><time>'+data['data'][i]['DTM_CRT']+' '+data['data'][i]['NAMA_CABANG']+'</time></div></a>'
       }
       $("#printNotif").html(html);
       if (data['sum_notif'] > 0) {

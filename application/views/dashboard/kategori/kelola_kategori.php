@@ -22,6 +22,7 @@
               <tr>
                 <th width="20">No.</th>
                 <th>Nama Kategori Bahan</th>
+                <th>Jenis</th>
                 <th width="20"></th>
               </tr>
             </thead>
@@ -34,6 +35,7 @@
                 <tr>
                   <td><?= $i ?>.</td>
                   <td><?= $list['NAMA_KATEGORI']?></td>
+                  <td><?= $list['JENIS']?></td>
                   <td>
                     <div class="dropdown">
                       <button type="button" class="btn btn-sm btn-primary dropdown-toggle no-arrow" data-toggle="dropdown">
