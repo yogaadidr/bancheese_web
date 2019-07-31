@@ -29,15 +29,29 @@ function loadTable(){
         return 'Rp.'+ row[3];
       },
     },
+    {
+      "targets": 6,
+      "data": function ( row, type, val, meta ) {
+        return 'Rp.'+ row[5];
+      },
+    },
+    {
+      "targets": 8,
+      "data": function ( row, type, val, meta ) {
+        return 'Rp.'+ row[7];
+      },
+    },
     { "targets":0, "visible":false},
     { "targets":3, "visible":false},
+    { "targets":5, "visible":false},
+    { "targets":7, "visible":false},
     <?=($get_grafik=='Netto' && $status == 'Sukses')?'
-      { "targets":5, "visible":true},
       { "targets":6, "visible":true},
-      { "targets":7, "visible":false},'
+      { "targets":8, "visible":true},
+      { "targets":9, "visible":false},'
     :'
-      { "targets":5, "visible":false},
       { "targets":6, "visible":false},
+      { "targets":8, "visible":false},
     '?>
     ],
     "footerCallback": function ( row, data, start, end, display ) {
@@ -92,6 +106,7 @@ function loadTable(){
       '<b>Rp. '+pageTotal.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +'<small> ( Rp. '+ total.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +' total)</small></b>'
       );
 
+
     totalKredit = api
     .column( 5 ,{ search:'applied' })
     .data()
@@ -99,19 +114,33 @@ function loadTable(){
       return intVal(a) + intVal(b);
     }, 0 );
 
-    $( api.column( 5 ).footer() ).html(
-      '<b>Rp. '+totalKredit.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +'<small> ( Rp. '+ totalKredit.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +' total)</small></b>'
-      );
-
-    totalNett = api
-    .column( 6 ,{ search:'applied' })
+    pageKredit = api
+    .column( 5 ,{ search:'applied' })
     .data()
     .reduce( function (a, b) {
       return intVal(a) + intVal(b);
     }, 0 );
 
     $( api.column( 6 ).footer() ).html(
-      '<b>Rp. '+totalNett.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +'<small> ( Rp. '+ totalNett.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +' total)</small></b>'
+      '<b>Rp. '+pageKredit.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +'<small> ( Rp. '+ totalKredit.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +' total)</small></b>'
+      );
+
+
+    totalNett = api
+    .column( 7 ,{ search:'applied' })
+    .data()
+    .reduce( function (a, b) {
+      return intVal(a) + intVal(b);
+    }, 0 );
+    pageNett = api
+    .column( 7 ,{ search:'applied' })
+    .data()
+    .reduce( function (a, b) {
+      return intVal(a) + intVal(b);
+    }, 0 );
+
+    $( api.column( 8 ).footer() ).html(
+      '<b>Rp. '+pageNett.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +'<small> ( Rp. '+ totalNett.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') +' total)</small></b>'
       );
   }
 });

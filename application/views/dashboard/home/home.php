@@ -89,7 +89,9 @@ $get_idCabang = ($this->input->get('cabang')=='')?'all':$this->input->get('caban
 									<th width="14%">Jumlah Item</th>
 									<th>Total Pemasukan Hide</th>
 									<th>Total</th>
+									<th>Pengeluaran hide</th>
 									<th>Pengeluaran</th>
+									<th>Nett Pendapatan hide</th>
 									<th>Nett Pendapatan</th>
 									<th width="5%">Action</th>
 								</tr>
@@ -103,14 +105,18 @@ $get_idCabang = ($this->input->get('cabang')=='')?'all':$this->input->get('caban
 										<td><?=$dp['TGL_TRANSAKSI']?></td>
 										<td><?=$dp['QTY']?></td>
 										<td><?=number_format($dp['NET_HARGA'],2)?></td>
-										<td><?=$dp['NET_HARGA']?></td>
-										<td><?=$dp['DEBET']+$dp['PENGELUARAN']?></td>
+										<td></td>
+										<td><?=number_format($dp['DEBET']+$dp['PENGELUARAN'])?></td>
+										<td></td>
 										<td><?=number_format(($dp['NET_HARGA'] - ($dp['DEBET']+$dp['PENGELUARAN'])),2)?></td>
+										<td></td>
 										<td><a href="<?=base_url('Dashboard/detailDashboard/').$dp['PERIODE'].'/'.$get_per.'/'.$get_idCabang."/$status"?>" class="btn btn-sm btn-warning"><i class="fa fa-file-text"></i> Detail Penjualan</a></td>
 									</tr>
 								<?php }}?>
 							</tbody>
 							<tfoot>
+								<td></td>
+								<td></td>
 								<td></td>
 								<td></td>
 								<td></td>
