@@ -27,6 +27,8 @@ $config['base_url'] = 'http://localhost:81/bancheese_web/';
 
 $config['api_url'] = 'http://localhost:8080/api/v1/';
 
+// $config['api_url'] = 'http://bancheese.com/dev/public/api/v1/';
+
 /*
 |--------------------------------------------------------------------------
 | Index File

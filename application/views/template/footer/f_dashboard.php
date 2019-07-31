@@ -129,13 +129,13 @@ function loadTrendGraph(){
           if ($get_grafik=='Trend') {?>
             { days: "<?=$dp['TGL_TRANSAKSI']?>", a: <?=$dp['NET_HARGA']?>},
           <?php }else{?>
-            { days: "<?=$dp['TGL_TRANSAKSI']?>", a: <?=$dp['NET_HARGA']?>, b:<?=$dp['KREDIT']?>},
+            { days: "<?=$dp['TGL_TRANSAKSI']?>", a: <?=$dp['NET_HARGA']?>, b:<?=$dp['DEBET']+$dp['PENGELUARAN']?>},
           <?php }} }?>
           ],
           xkey: 'days',
           parseTime: false,
           ykeys: <?=$get_grafik=='Trend'?"['a']":"['a','b']"?>,
-          labels: ['Total Income','Total Kredit'],
+          labels: ['Total Income','Total Pengeluaran'],
           pointSize: 3,
           fillOpacity: 0.4,
           pointStrokeColors: <?=$get_grafik=='Trend'?"['#a0d0e0']":"['#a0d0e0','#b1bccb']"?>,
