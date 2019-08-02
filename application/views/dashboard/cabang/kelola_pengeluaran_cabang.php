@@ -37,7 +37,7 @@
                 foreach ($list as $list): ?>
                   <tr>
                     <td><?= $i ?>.</td>
-                    <td><?= $list['TGL_TRANSAKSI']?></td>
+                    <td><?= $list['DTM_CRT']?></td>
                     <td>Rp. <?= number_format($list['BIAYA'])?></td>
                     <td><?= $list['KETERANGAN']?>
                       
