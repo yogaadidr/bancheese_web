@@ -45,7 +45,7 @@
             <span id="bell" class="topbar-btn has-new" data-toggle="dropdown"><i class="fa fa-bell"></i><small id="sum_notif"></small></span>
             <div class="dropdown-menu dropdown-menu-right">
 
-              <div class="media-list media-list-hover media-list-divided media-list-xs" id="printNotif">
+              <div class="media-list media-list-hover media-list-divided media-list-xs" id="printNotif" style="overflow-y: scroll; max-height: 300px;">
                 <!-- <a class="media media-new" href="#">
                   <span class="avatar bg-success"><i class="ti-user"></i></span>
                   <div class="media-body">
