@@ -23,6 +23,7 @@ function loadTable(){
     order: [[ 0, "desc" ]],
     scrollCollapse: true,
     fixedColumns: true,
+    scrollX: true,
     columnDefs:[{
       "targets": 4,
       "data": function ( row, type, val, meta ) {
